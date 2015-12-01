@@ -1,70 +1,69 @@
 <?php
-    $appid = "wxd6047c7550e0899a";
-    $appsecret = "7215fba08d2f147c909beaff46bbb559 ";
-    $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
-    
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); 
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE); 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $output = curl_exec($ch);
-    curl_close($ch);
-    $jsoninfo = json_decode($output, true);
-    $access_token = $jsoninfo["access_token"];
-    echo $access_token.'<br/>';
-$jsonmenu = '{
+header("Content-type: text/html; charset=utf-8");
+define("ACCESS_TOKEN", "UAGfmDPD8PbV264AU2zR3NLKPyQ-D6ffc2NxDjqO09SoNacaKzZorlJHU3Ne-4GXbp1RM-jQi6ZyHK3WK-E-CfO9L0f0gQYMGcneal5Q9t8RCOaAGABMY");
+
+
+//创建菜单
+function createMenu($data){
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".ACCESS_TOKEN);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$tmpInfo = curl_exec($ch);
+if (curl_errno($ch)) {
+  return curl_error($ch);
+}
+
+curl_close($ch);
+return $tmpInfo;
+
+}
+
+//获取菜单
+function getMenu(){
+return file_get_contents("https://api.weixin.qq.com/cgi-bin/menu/get?access_token=".ACCESS_TOKEN);
+}
+
+//删除菜单
+function deleteMenu(){
+return file_get_contents("https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".ACCESS_TOKEN);
+}
+
+
+
+
+
+$data = '{
      "button":[
-     {    
+     {
           "type":"click",
-          "name":"快速查找",
-          "key":"TIPS"
+          "name":"首页",
+          "key":"home"
       },
       {
-           "name":"热门地区",
+           "type":"click",
+           "name":"简介",
+           "key":"introduct"
+      },
+      {
+           "name":"菜单",
            "sub_button":[
-       {
-         "type":"click",
-         "name":"大温哥华区",
-         "key":"wgh"
-       },
-       {
-         "type":"click",
-         "name":"大维多利亚区",
-         "key":"wdly"
-       },
-       {
-         "type":"click",
-         "name":"纳奈莫区",
-         "key":"nnm"
-       }
-       ]
-      },
-      {
-          
-       "type":"click",
-       "name":"联系小天天",
-       "key":"http://dailynet.ca/weixin/"
-         
+            {
+               "type":"click",
+               "name":"hello word",
+               "key":"V1001_HELLO_WORLD"
+            },
+            {
+               "type":"click",
+               "name":"赞一下我们",
+               "key":"V1001_GOOD"
+            }]
        }]
- }';
-    
-    $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$access_token;
-    $result = https_request($url, $jsonmenu);
-    var_dump($result);
-    
-    function https_request($url,$data = null){
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-        if (!empty($data)){
-            curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        }
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($curl);
-        curl_close($curl);
-        return $output;
-    }
-?>
+}';
+echo createMenu($data);
