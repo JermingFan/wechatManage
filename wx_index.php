@@ -91,10 +91,10 @@ class wechatCallbackapiTest
 				}
 				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
-//					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
-//					$res = _select_data($sql);
-//					if(!empty($res))
-//					{
+					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+					$res = _select_data($sql);
+					if(!empty($res))
+					{
 //						$sql1 = "DELETE * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 //						$res1 = _select_data($sql1);
 //
@@ -113,8 +113,8 @@ class wechatCallbackapiTest
 //							echo $resultStr;
 //						}
 //
-//					}
-//					else
+					}
+					else
 					{
 						$msgType = "text";
 						$contentStr = '还未绑定工号~';
