@@ -62,9 +62,8 @@ class wechatCallbackapiTest
             if (!empty($event)) {
                 /* $sql = "insert into sleep_man (`from_user`,`flag`) VALUES ('$fromUsername',0)";
                  _insert_data($sql);*/
-                $msgType = "text";
                 $contentStr = "ddddd";
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $contentStr);
                 echo $resultStr;
             }
             if(!empty( $keyword ))
