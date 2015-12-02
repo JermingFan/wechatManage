@@ -1,7 +1,7 @@
 <?php
 require_once '../sql.php';
 
-function jiebang()
+public function jiebang()
 {
 	$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 	$res = _select_data($sql);
