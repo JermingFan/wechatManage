@@ -1,9 +1,6 @@
 <?php
-/**
- * wechat php test
- */
+require_once './sql.php';
 
-//define your token
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
 $wechatObj->responseMsg();
@@ -60,13 +57,26 @@ class wechatCallbackapiTest
                             </item>
                             </Articles>
                             </xml> ";
+
             if (!empty($event)) {
                 $msgType = "text";
-                $contentStr = "ddddd";
+                $contentStr = "关注事件";
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 echo $resultStr;
             }
-            if(!empty( $keyword ))
+
+            $sql = "SELECT flag_id FROM user_flags WHERE from_user = '$fromUsername'";
+            $result = _select_data($sql);
+            while (!!$rows = mysql_fetch_array($result)) {
+                $user_flag = $rows[flag_id];
+            }
+            if (trim($keyword) <> $user_flag && is_numeric($keyword)) {
+                $user_flag = '';
+                $sql = "DELETE FROM user_flags WHERE from_user = '$fromUsername'";
+                _delete_data($sql);
+            }
+
+            if(!empty($keyword))
             {
                 $msgType = "text";
                 $contentStr = "Welcome to wechat world!";
