@@ -1,6 +1,5 @@
 <?php
 require_once './sql.php';
-require_once './bd/bangdingmodel.php';
 
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -83,9 +82,46 @@ class wechatCallbackapiTest
 			if (empty($user_flag))
 			{
 //				用户绑定对应角色
-if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
+				if ($keyword == '1' || $keyword == '绑定')
 				{
-					_jiebang($textTpl, $fromUsername, $toUsername, $time);
+					$msgType = "text";
+					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $postObj->FromUserName . '">点击绑定角色~</a>';
+					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+					echo $resultStr;
+				}
+				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
+				{
+					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+					$res = _select_data($sql);
+					if(!empty($res))
+					{
+						$sql = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+						$res = _delete_data($sql);
+
+						if($res == 1)
+						{
+							$msgType = "text";
+							$contentStr = '解绑工号成功~';
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
+						}
+						else
+						{
+							$msgType = "text";
+							$contentStr = '解绑工号失败~';
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
+						}
+
+					}
+					else
+					{
+						$msgType = "text";
+						$contentStr = '还未绑定工号~';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
+				}
 				else
 				{
 					echo "Input something...";
