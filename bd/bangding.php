@@ -71,12 +71,16 @@ echo'
 					<option value="3">角色3</option>
 				</select>
 			</div>
-			<div class="box-footer">
+			<div class="form-group">
 				<input type="submit" value="确定" class="btn btn-success btn-block"/>
 			</div>
 		</form>
 	</div>
-	<span>Copyright ©2015 Powered By 范哲铭 & 毕设</span>
+	<footer class="footer navbar-fixed-bottom ">
+		<div class="container">
+		Copyright ©2015 Powered By 范哲铭 & 毕设
+		</div>
+	</footer>
 ';
 
 ?>
