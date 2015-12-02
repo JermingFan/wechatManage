@@ -1,6 +1,7 @@
 <?php
 require_once '../sql.php';
 require_once '../wx_index.php';
+
 public function jiebang($textTpl, $fromUsername, $toUsername, $time)
 {
 	$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
@@ -15,14 +16,14 @@ public function jiebang($textTpl, $fromUsername, $toUsername, $time)
 			$msgType = "text";
 			$contentStr = '解绑工号成功~';
 			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-			return $resultStr;
+			echo $resultStr;
 		}
 		else
 		{
 			$msgType = "text";
 			$contentStr = '解绑工号失败~';
 			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-			return $resultStr;
+			echo $resultStr;
 		}
 
 	}
@@ -31,7 +32,7 @@ public function jiebang($textTpl, $fromUsername, $toUsername, $time)
 		$msgType = "text";
 		$contentStr = '还未绑定工号~';
 		$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-		return $resultStr;
+		echo $resultStr;
 	}
 }
 
