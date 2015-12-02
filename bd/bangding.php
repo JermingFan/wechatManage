@@ -5,7 +5,6 @@
 	<title>
 		绑定角色
 	</title>
-<!--	<link rel="stylesheet" type="text/css" href="/bd/style.css" />-->
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
@@ -54,28 +53,30 @@ function bangding($fromUsername, $uid, $pwd, $type)
 
 echo'
 	<div class="container">
-	<form action="http://wglpt.sinaapp.com/bd/bangding.php?openid='.$fromUsername.'" method="post">
-	<h2 class="form-signin-heading">Please sign in</h2>
-	<label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	<label>工号</label>
-	<input name="id" type="text" class="input" value="" placeholder="工号..." />
-	<span></span>
-	<input name="pwd" type="password" class="input" value="" placeholder="密 码..." />
-		<span></span>
-	<select name="type" class="input">
-		<option value="1">角色1</option>
-		<option value="2">角色2</option>
-		<option value="3">角色3</option>
-	</select>
+		<form action="http://wglpt.sinaapp.com/bd/bangding.php?openid='.$fromUsername.'" method="post">
+			<h2 class="form-signin-heading">请绑定工号</h2>
+			<div class="form-group">
+				<label>工号</label>
+				<input name="id" type="text" class="form-control" placeholder="输入工号..." />
+			</div>
+			<div class="form-group">
+				<label>密码</label>
+				<input name="pwd" type="password" class="form-control" placeholder="输入密码..." />
+			</div>
+			<div class="form-group">
+				<label>角色</label>
+				<select name="type" class="form-control">
+					<option value="1">角色1</option>
+					<option value="2">角色2</option>
+					<option value="3">角色3</option>
+				</select>
+			</div>
+			<div class="box-footer">
+				<input type="submit" class="btn btn-primary"/>
+			</div>
+		</form>
 	</div>
-	<div class="footer">
-	<input type="submit" class="btn btn-lg btn-primary btn-block"/>
 	<span>Copyright ©2015 Powered By 范哲铭 & 毕设</span>
-	</div>
-	</form>
-	</div>
-	<div class="gradient"></div>
 ';
 
 ?>
