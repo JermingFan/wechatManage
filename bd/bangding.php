@@ -59,9 +59,9 @@ echo'
 	<form action="http://wglpt.sinaapp.com/bd/bangding.php?openid='.$fromUsername.'" method="post">
 	<div align="center" class="row">
 	<div class="content">
-	<input name="id" type="text" class="input txtUserID" value="" placeholder="工号..." />
-	<input name="pwd" type="password" class="input txtUserPwd" value="" placeholder="密 码..." />
-	<select name="type">
+	<input name="id" type="text" class="input" value="" placeholder="工号..." /><hr>
+	<input name="pwd" type="password" class="input" value="" placeholder="密 码..." /><hr>
+	<select name="type" class="input">
 		<option value="1">角色1</option>
 		<option value="2">角色2</option>
 		<option value="3">角色3</option>
