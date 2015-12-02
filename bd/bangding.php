@@ -15,11 +15,11 @@ $fromUsername=$_GET["openid"];
 
 if(isset($_POST["submit"]))
 {
-	bangding($fromUsername, trim($_POST["id"]), trim($_POST["pwd"]));
+	bangding($fromUsername, trim($_POST["id"]), trim($_POST["pwd"]), trim($_POST["type"]));
 	exit();
 }
 
-function bangding($fromUsername, $uid, $pwd)
+function bangding($fromUsername, $uid, $pwd, $type)
 {
 	require_once '../sql.php';
 	$sql = "SELECT `uid` FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
@@ -31,7 +31,7 @@ function bangding($fromUsername, $uid, $pwd)
 	}
 	if (empty($data))
 	{
-		$sql = "INSERT INTO `user_bangding` (`from_user`, `uid`, `pwd`) values ('$fromUsername', '$uid', '$pwd')";
+		$sql = "INSERT INTO `user_bangding` (`from_user`, `uid`, `pwd`, `type`) values ('$fromUsername', '$uid', '$pwd', '$type')";
 		$res = _insert_data($sql);
 		if($res == 1)
 		{
@@ -61,6 +61,11 @@ echo'
 	<div class="content">
 	<input name="id" type="text" class="input txtUserID" value="" placeholder="工号..." />
 	<input name="pwd" type="password" class="input txtUserPwd" value="" placeholder="密 码..." />
+	<select name="type">
+		<option value="1">角色1</option>
+		<option value="2">角色2</option>
+		<option value="3">角色3</option>
+	</select>
 	</div>
 	<div class="footer">
 	<input type="submit" name="submit" value="点击绑定" id="btnLogin" class="button" onsubmit="return check()"/>
