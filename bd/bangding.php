@@ -78,7 +78,7 @@ echo'
 	</div>
 	<footer class="footer navbar-fixed-bottom ">
 		<div class="container">
-		Copyright ©2015 Powered By 范哲铭 & 毕设
+		<label text-align:center>Copyright ©2015 Powered By 范哲铭 & 毕设</label>
 		</div>
 	</footer>
 ';
