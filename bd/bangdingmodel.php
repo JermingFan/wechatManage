@@ -15,14 +15,14 @@ public function jiebang()
 			$msgType = "text";
 			$contentStr = '解绑工号成功~';
 			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-			echo $resultStr;
+			return $resultStr;
 		}
 		else
 		{
 			$msgType = "text";
 			$contentStr = '解绑工号失败~';
 			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-			echo $resultStr;
+			return $resultStr;
 		}
 
 	}
@@ -31,7 +31,7 @@ public function jiebang()
 		$msgType = "text";
 		$contentStr = '还未绑定工号~';
 		$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-		echo $resultStr;
+		return $resultStr;
 	}
 }
 
