@@ -59,7 +59,8 @@ class wechatCallbackapiTest
                             </item>
                             </Articles>
                             </xml> ";
-            if (!empty($event)) {
+            if (strtolower($postObj->MsgType) == 'event') {
+                echo aaaaaa;die;
                 $msgType = "text";
                 $contentStr = "sssssorld!";
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);

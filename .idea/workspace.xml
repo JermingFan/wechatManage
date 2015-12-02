@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1d9844c-e37d-4c93-bcb5-0e26a86ce2d4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx_index.php" afterPath="$PROJECT_DIR$/wx_index.php" />
     </list>
     <ignored path="wglpt.iws" />
@@ -27,13 +28,13 @@
       <file leaf-file-name="wx_index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wx_index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2962963">
-              <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.60493827">
+              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
               <folding>
-                <marker date="1449023452188" expanded="true" signature="1112:1371" placeholder="..." />
-                <marker date="1449023452188" expanded="true" signature="1404:2224" placeholder="..." />
-                <marker date="1449023452188" expanded="true" signature="1790:2189" placeholder="..." />
-                <marker date="1449023452188" expanded="true" signature="1825:2149" placeholder="..." />
+                <marker date="1449024108573" expanded="true" signature="1112:1371" placeholder="..." />
+                <marker date="1449024108573" expanded="true" signature="1404:2224" placeholder="..." />
+                <marker date="1449024108573" expanded="true" signature="1790:2189" placeholder="..." />
+                <marker date="1449024108573" expanded="true" signature="1825:2149" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -198,13 +199,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wx_index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2962963">
-          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.60493827">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
           <folding>
-            <marker date="1449023452188" expanded="true" signature="1112:1371" placeholder="..." />
-            <marker date="1449023452188" expanded="true" signature="1404:2224" placeholder="..." />
-            <marker date="1449023452188" expanded="true" signature="1790:2189" placeholder="..." />
-            <marker date="1449023452188" expanded="true" signature="1825:2149" placeholder="..." />
+            <marker date="1449024108573" expanded="true" signature="1112:1371" placeholder="..." />
+            <marker date="1449024108573" expanded="true" signature="1404:2224" placeholder="..." />
+            <marker date="1449024108573" expanded="true" signature="1790:2189" placeholder="..." />
+            <marker date="1449024108573" expanded="true" signature="1825:2149" placeholder="..." />
           </folding>
         </state>
       </provider>
