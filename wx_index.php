@@ -83,14 +83,7 @@ class wechatCallbackapiTest
 			if (empty($user_flag))
 			{
 //				用户绑定对应角色
-				if ($keyword == '1' || $keyword == '绑定')
-				{
-					$msgType = "text";
-					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $postObj->FromUserName . '">点击绑定角色~</a>';
-					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-					echo $resultStr;
-				}
-				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
+if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
 					_jiebang($textTpl, $fromUsername, $toUsername, $time);
 				else

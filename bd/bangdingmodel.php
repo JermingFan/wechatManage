@@ -17,6 +17,7 @@ function _jiebang($textTpl, $fromUsername, $toUsername, $time)
 			$contentStr = '解绑工号成功~';
 			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 			echo $resultStr;
+			die;
 		}
 		else
 		{
@@ -24,6 +25,7 @@ function _jiebang($textTpl, $fromUsername, $toUsername, $time)
 			$contentStr = '解绑工号失败~';
 			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 			echo $resultStr;
+			die;
 		}
 
 	}
@@ -33,6 +35,7 @@ function _jiebang($textTpl, $fromUsername, $toUsername, $time)
 		$contentStr = '还未绑定工号~';
 		$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 		echo $resultStr;
+		die;
 	}
 }
 
