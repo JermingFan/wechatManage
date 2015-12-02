@@ -1,6 +1,6 @@
 <?php
 require_once '../sql.php';
-
+require_once '../wx_index.php';
 public function jiebang()
 {
 	$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";

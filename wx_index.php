@@ -93,6 +93,7 @@ class wechatCallbackapiTest
 				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
 					jiebang();
+					echo $resultStr;
 				}
 				else
 				{
