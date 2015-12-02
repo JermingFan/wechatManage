@@ -84,8 +84,6 @@ class wechatCallbackapiTest
 //				用户绑定对应角色
 				if ($keyword == '1' || $keyword == '绑定')
 				{
-//					$sql = "INSERT INTO `user_flags` (`from_user`, `flag_id`) VALUE ('$fromUsername','1')";
-//					_insert_data($sql);
 					$msgType = "text";
 					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $postObj->FromUserName . '">点击绑定角色~</a>';
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
@@ -97,8 +95,9 @@ class wechatCallbackapiTest
 					$res = _select_data($sql);
 					if(!empty($res))
 					{
-						$sql = "DELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+						$sql = "DELETE * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 						$res = _select_data($sql);
+						
 						if($res == 1)
 						{
 							$msgType = "text";
@@ -106,10 +105,14 @@ class wechatCallbackapiTest
 							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 							echo $resultStr;
 						}
-						$msgType = "text";
-						$contentStr = '解绑工号失败~';
-						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-						echo $resultStr;
+						else
+						{
+							$msgType = "text";
+							$contentStr = '解绑工号失败~';
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
+						}
+
 					}
 					else
 					{
