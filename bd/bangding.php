@@ -21,7 +21,7 @@ if(isset($_POST["submit"]))
 
 function bangding($fromUsername, $uid, $pwd)
 {
-	require_once './sql.php';
+	require_once '../sql.php';
 	$sql = "SELECT `uid` FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 	$result = _select_data($sql);
 //	查找是否已存在信息
