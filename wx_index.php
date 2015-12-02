@@ -81,12 +81,13 @@ class wechatCallbackapiTest
 			}
 			if (empty($user_flag))
 			{
-				if ($keyword == '1')
+//				用户绑定对应角色
+				if ($keyword == '1' || $keyword == '绑定')
 				{
-					$sql = "INSERT INTO `user_flags` (`from_user`, `flag_id`) VALUE ('$fromUsername','1')";
-					_insert_data($sql);
+//					$sql = "INSERT INTO `user_flags` (`from_user`, `flag_id`) VALUE ('$fromUsername','1')";
+//					_insert_data($sql);
 					$msgType = "text";
-					$contentStr = "Welcome to wechat world!";
+					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $postObj->FromUserName . '">点击绑定角色~</a>';
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 					echo $resultStr;
 				}
