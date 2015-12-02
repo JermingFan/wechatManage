@@ -72,7 +72,7 @@ echo'
 				</select>
 			</div>
 			<div class="box-footer">
-				<input type="submit" class="btn btn-primary"/>
+				<input type="submit" class="btn btn-success btn-block"/>
 			</div>
 		</form>
 	</div>
