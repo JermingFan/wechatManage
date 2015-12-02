@@ -76,9 +76,9 @@ echo'
 			</div>
 		</form>
 	</div>
-	<footer class="footer navbar-fixed-bottom ">
+	<footer class="footer">
 		<div class="container">
-		<label style="text-align:center">Copyright ©2015 Powered By 范哲铭 & 毕设</label>
+		<label>Copyright ©2015 Powered By 范哲铭 & 毕设</label>
 		</div>
 	</footer>
 ';
