@@ -89,16 +89,16 @@ class wechatCallbackapiTest
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 					echo $resultStr;
 				}
-				elseif ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
+				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
 					if(!empty($res))
 					{
-						$sql = "DELETE * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
-						$res = _select_data($sql);
-						
-						if($res == 1)
+						$sql1 = "DELETE * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+						$res1 = _select_data($sql1);
+
+						if($res1 == 1)
 						{
 							$msgType = "text";
 							$contentStr = '解绑工号成功~';
