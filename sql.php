@@ -29,16 +29,16 @@ function _insert_data($sql)
 	mysql_query("set names 'utf8'");
 	if(!mysql_query($sql))
 	{
-		return 0;    //插入数据失败
+		return 0;	//插入数据失败
 	}
 	else
 	{
 		if(mysql_affected_rows()>0)
 		{
-			return 1;    //插入成功
+			return 1;	//插入成功
 		}
 		else{
-			return 2;    //没有行受到影响
+			return 2;	//没有行受到影响
 		}
 	}
 }
@@ -48,17 +48,17 @@ function _delete_data($sql)
 {
 	if(!mysql_query($sql))
 	{
-		return 0;    //删除失败
+		return 0;	//删除失败
 	}
 	else
 	{
 		if(mysql_affected_rows()>0)
 		{
-			return 1;    //删除成功
+			return 1;	//删除成功
 		}
 		else
 		{
-			return 2;    //没有行受到影响
+			return 2;	//没有行受到影响
 		}
 	}
 }
@@ -68,17 +68,17 @@ function _update_data($sql)
 {
 	if(!mysql_query($sql))
 	{
-		return 0;    //更新数据失败
+		return 0;	//更新数据失败
 	}
 	else
 	{
 		if(mysql_affected_rows()>0)
 		{
-			return 1;    //更新成功;
+			return 1;	//更新成功;
 		}
 		else
 		{
-			return 2;    //没有行受到影响
+			return 2;	//没有行受到影响
 		}
 	}
 }
