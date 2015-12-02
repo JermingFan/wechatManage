@@ -72,11 +72,11 @@ echo'
 				</select>
 			</div>
 			<div class="form-group">
-				<input type="submit" value="确定" class="btn btn-success btn-block"/>
+				<input type="submit" name="submit" value="确定" class="btn btn-success btn-block"/>
 			</div>
 		</form>
 	</div>
-	<footer class="footer navbar-bottom">
+	<footer class="footer">
 		<div class="container">
 			<label>Copyright ©2015<br/>Powered By 范哲铭 & 毕设</label>
 		</div>
