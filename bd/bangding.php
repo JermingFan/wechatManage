@@ -5,7 +5,10 @@
 	<title>
 		绑定角色
 	</title>
-	<link rel="stylesheet" type="text/css" href="/bd/style.css" />
+<!--	<link rel="stylesheet" type="text/css" href="/bd/style.css" />-->
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 </head>
 <body>
 
@@ -50,15 +53,12 @@ function bangding($fromUsername, $uid, $pwd, $type)
 }
 
 echo'
-	<div id="wrapper">
-	<form name="login-form" class="login-form" action="" method="post">
-	<div class="header">
-	<h1>绑 定 角 色</h1>
-	</div>
-	<div class="form">
+	<div class="container">
 	<form action="http://wglpt.sinaapp.com/bd/bangding.php?openid='.$fromUsername.'" method="post">
-	<div align="center" class="row">
-	<div class="content">
+	<h2 class="form-signin-heading">Please sign in</h2>
+	<label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	<label>工号</label>
 	<input name="id" type="text" class="input" value="" placeholder="工号..." />
 	<span></span>
 	<input name="pwd" type="password" class="input" value="" placeholder="密 码..." />
@@ -70,7 +70,7 @@ echo'
 	</select>
 	</div>
 	<div class="footer">
-	<input type="submit" name="submit" value="点击绑定" id="btnLogin" class="button" onsubmit="return check()"/>
+	<input type="submit" class="btn btn-lg btn-primary btn-block"/>
 	<span>Copyright ©2015 Powered By 范哲铭 & 毕设</span>
 	</div>
 	</form>
@@ -79,6 +79,11 @@ echo'
 ';
 
 ?>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
