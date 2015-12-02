@@ -78,8 +78,7 @@ echo'
 	</div>
 	<footer class="footer navbar-fixed-bottom">
 		<div class="container">
-			<label>Copyright ©2015</label>
-			<label>Powered By 范哲铭 & 毕设</label>
+			<label>Copyright ©2015<br/>Powered By 范哲铭 & 毕设</label>
 		</div>
 	</footer>
 ';
