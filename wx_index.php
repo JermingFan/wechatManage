@@ -60,10 +60,9 @@ class wechatCallbackapiTest
                             </Articles>
                             </xml> ";
             if (!empty($event)) {
-                /* $sql = "insert into sleep_man (`from_user`,`flag`) VALUES ('$fromUsername',0)";
-                 _insert_data($sql);*/
-                $contentStr = "ddddd";
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $contentStr);
+                $msgType = "text";
+                $contentStr = "sssssorld!";
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 echo $resultStr;
             }
             if(!empty( $keyword ))
