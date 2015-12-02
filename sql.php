@@ -1,6 +1,6 @@
 <?php
 // 连主库
-$link=mysql_connect(SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
+$link=mysqli_connect(SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
 
 // 连从库
 // $link=mysql_connect(SAE_MYSQL_HOST_S.':'.SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
@@ -17,7 +17,7 @@ if($link)
 //创建一个数据库表
 function _create_table($sql)
 {
-	mysql_query($sql) or die('创建表失败，错误信息：'.mysql_error());
+	mysqli_query($sql) or die('创建表失败，错误信息：'.mysql_error());
 	return "创建表成功";
 }
 
