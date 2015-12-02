@@ -1,7 +1,7 @@
 <?php
 require_once '../sql.php';
 require_once '../wx_index.php';
-public function jiebang()
+public function jiebang($textTpl, $fromUsername, $toUsername, $time)
 {
 	$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 	$res = _select_data($sql);

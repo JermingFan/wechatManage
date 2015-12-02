@@ -1,6 +1,6 @@
 <?php
 require_once './sql.php';
-//require_once './bd/bangdingmodel.php';
+require_once './bd/bangdingmodel.php';
 
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -92,7 +92,7 @@ class wechatCallbackapiTest
 				}
 				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
-					jiebang();
+					jiebang($textTpl, $fromUsername, $toUsername, $time);
 					echo $resultStr;
 				}
 				else
