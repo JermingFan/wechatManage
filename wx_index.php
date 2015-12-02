@@ -100,10 +100,10 @@ class wechatCallbackapiTest
 //
 //						if($res1 == 1)
 //						{
-//							$msgType = "text";
-//							$contentStr = '解绑工号成功~';
-//							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-//							echo $resultStr;
+							$msgType = "text";
+							$contentStr = '解绑工号成功~';
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
 //						}
 //						else
 //						{
