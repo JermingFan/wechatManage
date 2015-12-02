@@ -57,11 +57,11 @@ echo'
 			<h2 class="form-signin-heading">请绑定工号</h2>
 			<div class="form-group">
 				<label>工号</label>
-				<input name="id" type="text" class="form-control" placeholder="输入工号..." />
+				<input name="id" type="text" class="form-control" placeholder="输入工号..." required/>
 			</div>
 			<div class="form-group">
 				<label>密码</label>
-				<input name="pwd" type="password" class="form-control" placeholder="输入密码..." />
+				<input name="pwd" type="password" class="form-control" placeholder="输入密码..." required/>
 			</div>
 			<div class="form-group">
 				<label>角色</label>
@@ -72,7 +72,7 @@ echo'
 				</select>
 			</div>
 			<div class="box-footer">
-				<input type="submit" class="btn btn-success btn-block"/>
+				<input type="submit" value="确定" class="btn btn-success btn-block"/>
 			</div>
 		</form>
 	</div>
