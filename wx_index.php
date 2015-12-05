@@ -98,7 +98,7 @@ class wechatCallbackapiTest
 					{
 						$data = $rows['type'];
 					}
-					if ($data != 1)
+					if ($data == 1)
 					{
 						$msgType = "text";
 						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=\' . $postObj->FromUserName . \'">点击绑定角色~</a>';
