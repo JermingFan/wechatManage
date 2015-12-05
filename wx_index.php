@@ -89,7 +89,8 @@ class wechatCallbackapiTest
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 					echo $resultStr;
 				}
-				else if ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
+//				用户解除绑定
+				elseif ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
@@ -97,6 +98,7 @@ class wechatCallbackapiTest
 					{
 						$data = $rows['uid'];
 					}
+
 					if(!empty($data))
 					{
 						$sql1 = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
