@@ -102,7 +102,7 @@ class wechatCallbackapiTest
 					else
 					{
 						$msgType = "text";
-						$contentStr = "用户".$data."已存在<br/>请重新绑定~";
+						$contentStr = "用户".$data."已存在\n请重新绑定~";
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
