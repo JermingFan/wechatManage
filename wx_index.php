@@ -89,6 +89,31 @@ class wechatCallbackapiTest
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 					echo $resultStr;
 				}
+
+				elseif ($keyword == '2' || $keyword == '修改权限')
+				{
+					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+					$res = _select_data($sql);
+					while ($rows = mysql_fetch_array($res))
+					{
+						$data = $rows['type'];
+					}
+					if ($data != 1)
+					{
+						$msgType = "text";
+						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=\' . $postObj->FromUserName . \'">点击绑定角色~</a>';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
+					else
+					{
+						$msgType = "text";
+						$contentStr = '暂无权限！';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
+				}
+
 //				用户解除绑定
 				elseif ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
@@ -128,6 +153,7 @@ class wechatCallbackapiTest
 						echo $resultStr;
 					}
 				}
+
 				else
 				{
 					echo "Input something...";
