@@ -93,12 +93,12 @@ class wechatCallbackapiTest
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
-					if(!empty($res))
+					if($res!='')
 					{
 						$sql = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
-						$res = _delete_data($sql);
+						$res1 = _delete_data($sql);
 
-						if($res == 1)
+						if($res1 == 1)
 						{
 							$msgType = "text";
 							$contentStr = '解绑工号成功~';
@@ -108,7 +108,7 @@ class wechatCallbackapiTest
 						else
 						{
 							$msgType = "text";
-							$contentStr = $res;
+							$contentStr = '解绑工号失败！';
 							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 							echo $resultStr;
 						}
@@ -117,7 +117,7 @@ class wechatCallbackapiTest
 					else
 					{
 						$msgType = "text";
-						$contentStr = '还未绑定工号~';
+						$contentStr = '还未绑定工号！';
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
