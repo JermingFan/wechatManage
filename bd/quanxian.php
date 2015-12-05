@@ -13,34 +13,76 @@
 
 <table class="table table-hover">
 	<tr>
-		<th>Month</th>
-		<th>Savings</th>
-		<td>January</td>
-		<td>$100</td>
+		<th>姓名</th>
+		<th>工号</th>
+		<th>角色</th>
+		<th>操作</th>
 	</tr>
 	<tr>
-		<td>January</td>
-		<td>$100</td>
-		<td>January</td>
-		<td>$100</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 	</tr>
 	<tr>
-		<td>January</td>
-		<td>$100</td>
-		<td>January</td>
-		<td>$100</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 	</tr>
 	<tr>
-		<td>January</td>
-		<td>$100</td>
-		<td>January</td>
-		<td>$100</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 	</tr>
 	<tr>
-		<td>January</td>
-		<td>$100</td>
-		<td>January</td>
-		<td>$100</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 	</tr>
 </table>
 
