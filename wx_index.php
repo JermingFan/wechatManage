@@ -97,7 +97,7 @@ class wechatCallbackapiTest
 					{
 						$data = $rows['uid'];
 					}
-					if(！empty($data))
+					if(!empty($data))
 					{
 						$sql1 = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 						$res1 = _delete_data($sql1);
