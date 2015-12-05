@@ -15,8 +15,30 @@
 	<tr>
 		<th>Month</th>
 		<th>Savings</th>
+		<td>January</td>
+		<td>$100</td>
 	</tr>
 	<tr>
+		<td>January</td>
+		<td>$100</td>
+		<td>January</td>
+		<td>$100</td>
+	</tr>
+	<tr>
+		<td>January</td>
+		<td>$100</td>
+		<td>January</td>
+		<td>$100</td>
+	</tr>
+	<tr>
+		<td>January</td>
+		<td>$100</td>
+		<td>January</td>
+		<td>$100</td>
+	</tr>
+	<tr>
+		<td>January</td>
+		<td>$100</td>
 		<td>January</td>
 		<td>$100</td>
 	</tr>
