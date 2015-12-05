@@ -84,10 +84,28 @@ class wechatCallbackapiTest
 //				用户绑定对应角色
 				if ($keyword == '1' || $keyword == '绑定')
 				{
-					$msgType = "text";
-					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $fromUsername. '">点击绑定角色~</a>';
-					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-					echo $resultStr;
+					$sql = "SELECT `uid` FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+					$result = _select_data($sql);
+//					查找是否已存在信息
+					while ($rows = mysql_fetch_array($result))
+					{
+						$data = $rows['uid'];
+					}
+
+					if (empty($data))
+					{
+						$msgType = "text";
+						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $fromUsername . '">点击绑定角色~</a>';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
+					else
+					{
+						$msgType = "text";
+						$contentStr = "用户".$data."已存在<br/>请重新绑定~";
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
 				}
 
 				elseif ($keyword == '2' || $keyword == '修改权限')
