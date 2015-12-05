@@ -85,7 +85,7 @@ class wechatCallbackapiTest
 				if ($keyword == '1' || $keyword == '绑定')
 				{
 					$msgType = "text";
-					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $postObj->FromUserName . '">点击绑定角色~</a>';
+					$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $fromUsername. '">点击绑定角色~</a>';
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 					echo $resultStr;
 				}
@@ -101,7 +101,7 @@ class wechatCallbackapiTest
 					if ($data == 1)
 					{
 						$msgType = "text";
-						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=\' . $postObj->FromUserName . \'">点击绑定角色~</a>';
+						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $fromUsername . '">点击绑定角色~</a>';
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
