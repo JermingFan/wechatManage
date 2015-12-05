@@ -108,7 +108,7 @@ class wechatCallbackapiTest
 						else
 						{
 							$msgType = "text";
-							$contentStr = '解绑工号失败~';
+							$contentStr = $res;
 							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 							echo $resultStr;
 						}
