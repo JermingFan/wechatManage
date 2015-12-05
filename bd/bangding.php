@@ -42,12 +42,12 @@ function bangding($fromUsername, $uid, $pwd, $type)
 		}
 		else
 		{
-			echo "绑定失败<br/>请重新绑定~";
+			echo "绑定\".$uid.\"失败<br/>请重新绑定~";
 		}
 	}
 	else
 	{
-		echo $uid."用户已存在<br/>请重新绑定~";
+		echo "用户".$uid."已存在<br/>请重新绑定~";
 	}
 }
 
