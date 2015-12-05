@@ -120,14 +120,14 @@ class wechatCallbackapiTest
 					if ($data == 1)
 					{
 						$msgType = "text";
-						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $fromUsername . '">点击绑定角色~</a>';
+						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/bangding.php?openid=' . $fromUsername . '">点击进入修改权限~</a>';
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
 					else
 					{
 						$msgType = "text";
-						$contentStr = '暂无权限！';
+						$contentStr = "暂无权限！\n请联系管理员";
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
