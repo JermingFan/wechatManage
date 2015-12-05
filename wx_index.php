@@ -93,10 +93,10 @@ class wechatCallbackapiTest
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
-					if($res!='')
+					if(empty($res))
 					{
-						$sql = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
-						$res1 = _delete_data($sql);
+						$sql1 = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
+						$res1 = _delete_data($sql1);
 
 						if($res1 == 1)
 						{
