@@ -93,6 +93,7 @@ class wechatCallbackapiTest
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
+					$rows = mysql_fetch_array($res)
 //					if(isset($res))
 //					{
 //						$sql1 = "DELETE FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
@@ -117,7 +118,7 @@ class wechatCallbackapiTest
 //					else
 //					{
 						$msgType = "text";
-						$contentStr = $res;
+						$contentStr = $rows;
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 //					}
