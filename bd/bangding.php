@@ -29,7 +29,7 @@ function bangding($fromUsername, $uid, $pwd, $type)
 //	查找是否已存在信息
 	while ($rows = mysql_fetch_array($result))
 	{
-		$data = $rows[uid];
+		$data = $rows['uid'];
 	}
 	if (empty($data))
 	{
@@ -47,7 +47,7 @@ function bangding($fromUsername, $uid, $pwd, $type)
 	}
 	else
 	{
-		echo "用户已存在<br/>请重新绑定~";
+		echo $uid."用户已存在<br/>请重新绑定~";
 	}
 }
 
