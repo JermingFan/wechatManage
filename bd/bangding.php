@@ -12,6 +12,7 @@
 <body>
 
 <?php
+require_once '../sql.php';
 
 $fromUsername=$_GET["openid"];
 
@@ -23,32 +24,18 @@ if(isset($_POST["submit"]))
 
 function bangding($fromUsername, $uid, $pwd, $type)
 {
-	require_once '../sql.php';
-	$sql = "SELECT `uid` FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
-	$result = _select_data($sql);
-//	查找是否已存在信息
-	while ($rows = mysql_fetch_array($result))
+	$sql = "INSERT INTO `user_bangding` (`from_user`, `uid`, `pwd`, `type`) values ('$fromUsername', '$uid', '$pwd', '$type')";
+	$res = _insert_data($sql);
+	if($res == 1)
 	{
-		$data = $rows['uid'];
-	}
-	if (empty($data))
-	{
-		$sql = "INSERT INTO `user_bangding` (`from_user`, `uid`, `pwd`, `type`) values ('$fromUsername', '$uid', '$pwd', '$type')";
-		$res = _insert_data($sql);
-		if($res == 1)
-		{
-			$contentStr = "绑定成功 ↖点击此处返回";
-			echo $contentStr;
-		}
-		else
-		{
-			echo "绑定\".$uid.\"失败<br/>请重新绑定~";
-		}
+		$contentStr = "绑定成功 ↖点击此处返回";
+		echo $contentStr;
 	}
 	else
 	{
-		echo "用户".$uid."已存在<br/>请重新绑定~";
+		echo "绑定\".$uid.\"失败<br/>请重新绑定~";
 	}
+
 }
 
 echo'

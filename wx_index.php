@@ -106,6 +106,7 @@ class wechatCallbackapiTest
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
+
 				}
 
 				elseif ($keyword == '2' || $keyword == '修改权限')
