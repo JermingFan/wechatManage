@@ -29,10 +29,10 @@
 		?>
 
 		<tr>
-			<td><?php $rows['name'] ?></td>
-			<td><?php $rows['uid'] ?></td>
-			<td><?php $rows['job'] ?></td>
-			<td><?php $rows['job'] ?></td>
+			<td><?php echo $rows['name'] ?></td>
+			<td><?php echo $rows['uid'] ?></td>
+			<td><?php echo $rows['job'] ?></td>
+			<td><?php echo $rows['job'] ?></td>
 			<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 		</tr>
 
