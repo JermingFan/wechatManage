@@ -10,80 +10,36 @@
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 </head>
 <body>
-
 <table class="table table-hover">
 	<tr>
 		<th>姓名</th>
 		<th>工号</th>
-		<th>角色</th>
+		<th>职位</th>
+		<th>权限</th>
 		<th>操作</th>
 	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
-	<tr>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td>aaa</td>
-		<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
-	</tr>
+
+	<?php
+	require_once '../sql.php';
+
+	$sql = "SELECT * FROM `user_info`";
+	$res = _select_data($sql);
+	while ($rows = mysql_fetch_array($res))
+	{
+		?>
+
+		<tr>
+			<td><?php $rows['name'] ?></td>
+			<td><?php $rows['uid'] ?></td>
+			<td><?php $rows['job'] ?></td>
+			<td><?php $rows['type'] ?></td>
+			<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+		</tr>
+
+		<?php
+	}
+	?>
+
 </table>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
