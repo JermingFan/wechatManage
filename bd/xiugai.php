@@ -17,8 +17,8 @@ require_once '../sql.php';
 if(isset($_POST["submit"]))
 {
 	$type = $_POST["type"];
-	$uid = $_GET['uid'];
-	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` = '$uid'";
+	$uid1 = $_POST['uid'];
+	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` = '$uid1'";
 	$res = _update_data($sql);
 	if($res == 1)
 	{
@@ -33,7 +33,7 @@ if(isset($_POST["submit"]))
 ?>
 
 <div class="container">
-	<form action="http://wglpt.sinaapp.com/bd/xiugai.php" method="post">
+	<form action="http://wglpt.sinaapp.com/bd/xiugai.php?" method="post">
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
