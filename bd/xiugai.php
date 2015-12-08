@@ -17,8 +17,17 @@ require_once '../sql.php';
 if(isset($_POST["submit"]))
 {
 	$type = $_POST["type"];
+	$uid = $_POST["uid"];
 	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` ='$uid'";
 	$res = _update_data($sql);
+	if($res == 1)
+	{
+		echo "修改成功 ↖点击此处返回";
+	}
+	else
+	{
+		echo "修改\".$uid.\"失败<br/>请重新修改~";
+	}
 	exit();
 }
 ?>
@@ -28,7 +37,7 @@ if(isset($_POST["submit"]))
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
-			<input name="id" type="text" class="form-control" value="<?php echo $_GET['uid'] ?>" placeholder="<?php echo $_GET['uid'] ?>" />
+			<input name="id" type="text" class="form-control" value="<?php echo $_GET['uid'] ?>" placeholder="<?php echo $_GET['uid'] ?>" disabled />
 		</div>
 		<div class="form-group">
 			<label>权限</label>
