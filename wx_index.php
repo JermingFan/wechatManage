@@ -264,9 +264,13 @@ class wechatCallbackapiTest
 						{
 							$late = '正常';
 						}
+						$uid = $rows['uid'];
+						$name = $rows['name'];
+						$time1 = $rows['time'];
+
 						$title = "签到列表\n[工号===姓名===状态===时间]";
 						$PicUrl = "";
-						$Description = "$rows['uid'].'==='.$rows['name'].'==='.$late.'==='.$rows['time']";
+						$Description = "$uid.'==='.$name.'==='.$late.'==='.$time1";
 						$Url = "";
 						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
