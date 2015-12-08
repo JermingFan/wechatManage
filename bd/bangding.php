@@ -28,12 +28,11 @@ function bangding($fromUsername, $uid, $pwd, $type)
 	$res = _insert_data($sql);
 	if($res == 1)
 	{
-		$contentStr = "绑定成功 ↖点击此处返回";
-		echo $contentStr;
+		echo "绑定成功 ↖点击此处返回";
 	}
 	else
 	{
-		echo "绑定\".$uid.\"失败<br/>请重新绑定~";
+		echo "绑定".$uid."失败<br/>请重新绑定~";
 	}
 
 }

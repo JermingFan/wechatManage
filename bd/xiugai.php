@@ -18,7 +18,7 @@ if(isset($_POST["submit"]))
 {
 	$type = $_POST["type"];
 	$uid = $_POST["uid"];
-	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` ='$uid'";
+	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` = '$uid'";
 	$res = _update_data($sql);
 	if($res == 1)
 	{
@@ -26,7 +26,7 @@ if(isset($_POST["submit"]))
 	}
 	else
 	{
-		echo "修改\".$uid.\"失败<br/>请重新修改~";
+		echo "修改".$uid."失败<br/>请重新修改~";
 	}
 	exit();
 }
