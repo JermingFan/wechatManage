@@ -219,7 +219,7 @@ class wechatCallbackapiTest
 						else
 						{
 //							添加迟到状态
-							$qtime = date("H:m:s", time());
+							$qtime = date("Y-m-d H:m:s", time());
 							$sql = "INSERT INTO `user_qiandao` (`from_user`, `late`, `time`) values ('$fromUsername', '1', $qtime)";
 							$res = _insert_data($sql);
 //							之后要修改绩效的代码*****************
