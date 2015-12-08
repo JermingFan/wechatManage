@@ -17,7 +17,7 @@ require_once '../sql.php';
 if(isset($_POST["submit"]))
 {
 	$type = $_POST["type"];
-	$uid = $_POST['id'];
+	$uid = $_POST['uid'];
 	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` = '$uid'";
 	$res = _update_data($sql);
 	if($res == 1)
