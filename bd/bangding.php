@@ -51,11 +51,13 @@ echo'
 				<input name="pwd" type="password" class="form-control" placeholder="输入密码..." required/>
 			</div>
 			<div class="form-group">
-				<label>角色</label>
+				<label>职务</label>
 				<select name="type" class="form-control">
-					<option value="1">角色1</option>
-					<option value="2">角色2</option>
-					<option value="3">角色3</option>
+					<option value="1">职务1</option>
+					<option value="2">职务2</option>
+					<option value="3">职务3</option>
+					<option value="4">职务4</option>
+					<option value="5">职务5</option>
 				</select>
 			</div>
 			<div class="form-group">

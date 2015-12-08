@@ -31,7 +31,10 @@
 		{
 			$qx = '普通';
 		}
-		else $qx = '高级';
+		else
+		{
+			$qx = '高级';
+		}
 		?>
 
 		<tr>
@@ -39,7 +42,7 @@
 			<td><?php echo $rows['uid'] ?></td>
 			<td><?php echo $rows['job'] ?></td>
 			<td><?php echo $qx ?></td>
-			<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
+			<td><a href="http://wglpt.sinaapp.com/bd/xiugai.php?uid='$rows['uid']'">修改</a></td>
 		</tr>
 
 		<?php
