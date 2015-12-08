@@ -221,6 +221,7 @@ class wechatCallbackapiTest
 //							添加迟到状态
 							$sql = "INSERT INTO `user_qiandao` (`from_user`, `late`) values ('$fromUsername', '1')";
 							$res = _insert_data($sql);
+//							之后要修改绩效的代码
 							if ($res == 1)
 							{
 								$msgType = "text";
@@ -236,7 +237,7 @@ class wechatCallbackapiTest
 								echo $resultStr;
 							}
 						}
-						
+
 					}
 					else
 					{
