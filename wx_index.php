@@ -254,16 +254,16 @@ class wechatCallbackapiTest
 				{
 					$sql = "SELECT q.`late`, q.`time`, i.`uid`, i.`name` FROM `user_qiandao` q, `user_info` i WHERE q.`from_user` = i.`from_user`";
 					$res = _select_data($sql);
-					while ($rows = mysql_fetch_array($res))
-					{
-						if ($rows['late'] == '1')
-						{
-							$late = '迟到';
-						}
-						else
-						{
-							$late = '正常';
-						}
+//					while ($rows = mysql_fetch_array($res))
+//					{
+//						if ($rows['late'] == '1')
+//						{
+//							$late = '迟到';
+//						}
+//						else
+//						{
+//							$late = '正常';
+//						}
 						$uid = $rows['uid'];
 						$name = $rows['name'];
 						$time1 = $rows['time'];
@@ -274,7 +274,7 @@ class wechatCallbackapiTest
 						$Url = "";
 						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
-					}
+//					}
 				}
 
 				else
