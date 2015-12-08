@@ -27,13 +27,18 @@
 	$res = _select_data($sql);
 	while ($rows = mysql_fetch_array($res))
 	{
+		if ($rows['type'] == 0)
+		{
+			$qx = '普通';
+		}
+		else $qx = '高级';
 		?>
 
 		<tr>
 			<td><?php echo $rows['name'] ?></td>
 			<td><?php echo $rows['uid'] ?></td>
 			<td><?php echo $rows['job'] ?></td>
-			<td><?php echo $rows['type'] ?></td>
+			<td><?php echo $qx ?></td>
 			<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 		</tr>
 
