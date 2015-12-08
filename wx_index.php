@@ -219,9 +219,10 @@ class wechatCallbackapiTest
 						else
 						{
 //							添加迟到状态
-							$sql = "INSERT INTO `user_qiandao` (`from_user`, `late`) values ('$fromUsername', '1')";
+							$qtime = date("Y:m:i", time());
+							$sql = "INSERT INTO `user_qiandao` (`from_user`, `late`, `time`) values ('$fromUsername', '1', $qtime)";
 							$res = _insert_data($sql);
-//							之后要修改绩效的代码
+//							之后要修改绩效的代码*****************
 							if ($res == 1)
 							{
 								$msgType = "text";
@@ -247,6 +248,11 @@ class wechatCallbackapiTest
 						echo $resultStr;
 					}
 
+				}
+
+				if ($keyword == '5' || $keyword == '查看签到')
+				{
+					$sql = "SELECT q.`late`, q.`time`, i.`uid`, i.`name`, i.`` FROM `user_qiandao` q, `user_info` i WHERE q.`from_user` = i.`from_user`";
 				}
 
 				else
