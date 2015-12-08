@@ -252,7 +252,21 @@ class wechatCallbackapiTest
 
 				if ($keyword == '5' || $keyword == '查看签到')
 				{
-					$sql = "SELECT q.`late`, q.`time`, i.`uid`, i.`name`, i.`` FROM `user_qiandao` q, `user_info` i WHERE q.`from_user` = i.`from_user`";
+					$sql = "SELECT q.`late`, q.`time`, i.`uid`, i.`name` FROM `user_qiandao` q, `user_info` i WHERE q.`from_user` = i.`from_user`";
+					$res = _select_data($sql);
+					while ($rows = mysql_fetch_array($res))
+					{
+						if ($rows['late'] == '1')
+						{
+							$late = '迟到';
+						}
+						$title = "签到列表\n[工号===姓名===状态===时间]";
+						$PicUrl = "";
+						$Description = $rows['uid'].'==='.$rows['name'].'==='.$late.'==='.$rows['time'];
+						$Url = "";
+						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+						echo $resultStr;
+					}
 				}
 
 				else
