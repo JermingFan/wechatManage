@@ -18,7 +18,7 @@ $fromUsername=$_GET["openid"];
 
 if(isset($_POST["submit"]))
 {
-	bangding($fromUsername, trim($_POST["id"]), trim($_POST["pwd"]), trim($_POST["type"]));
+	bangding($fromUsername, trim($_POST["uid"]), trim($_POST["pwd"]), trim($_POST["type"]));
 	exit();
 }
 
@@ -43,7 +43,7 @@ echo'
 			<h2 class="form-signin-heading">请绑定工号</h2>
 			<div class="form-group">
 				<label>工号</label>
-				<input name="id" type="text" class="form-control" placeholder="输入工号..." required/>
+				<input name="uid" type="text" class="form-control" placeholder="输入工号..." required/>
 			</div>
 			<div class="form-group">
 				<label>密码</label>
