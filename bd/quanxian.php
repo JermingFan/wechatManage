@@ -22,7 +22,8 @@
 	<?php
 	require_once '../sql.php';
 
-	$sql = "SELECT i.`name`, i.`uid`, i.`job`,b.`type` FROM `user_info` i , `user_bangding` b WHERE i.`uid` = b.`uid`";
+	$fromUsername=$_GET["openid"];
+	$sql = "SELECT i.`name`, i.`uid`, i.`job`,b.`type` FROM `user_info` i , `user_bangding` b WHERE i.`uid` = b.`uid`, b.`from_user` != $fromUsername";
 	$res = _select_data($sql);
 	while ($rows = mysql_fetch_array($res))
 	{

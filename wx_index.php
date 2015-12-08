@@ -120,7 +120,7 @@ class wechatCallbackapiTest
 					if ($data == 1)
 					{
 						$msgType = "text";
-						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/quanxian.php">点击进入修改权限~</a>';
+						$contentStr = '<a href="http://wglpt.sinaapp.com/bd/quanxian.php?openid=' . $fromUsername . '">点击进入修改权限~</a>';
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
