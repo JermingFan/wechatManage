@@ -14,12 +14,12 @@
 <?php
 require_once '../sql.php';
 
-$uid = $_GET['uid'];
 if(isset($_POST["submit"]))
 {
 	$type = $_POST["type"];
 	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` ='$uid'";
 	$res = _update_data($sql);
+	exit();
 }
 ?>
 
@@ -28,7 +28,7 @@ if(isset($_POST["submit"]))
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
-			<input name="id" type="text" class="form-control" value="<?php echo $uid ?>" placeholder="<?php echo $uid ?>" />
+			<input name="id" type="text" class="form-control" value="<?php echo $_GET['uid'] ?>" placeholder="<?php echo $_GET['uid'] ?>" />
 		</div>
 		<div class="form-group">
 			<label>权限</label>
