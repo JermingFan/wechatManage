@@ -177,7 +177,8 @@ class wechatCallbackapiTest
 //				用户签到
 				if ($keyword == '4' || $keyword == '签到')
 				{
-					$time = strtotime("16:00:00")-time();
+//					签到时间为9点，8点开始
+					$time = strtotime("9:00:00")-time();
 					if ($time > 0 && $time < 3600)
 					{
 						$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
@@ -206,6 +207,7 @@ class wechatCallbackapiTest
 								$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 								echo $resultStr;
 							}
+
 						}
 						else
 						{
@@ -225,10 +227,23 @@ class wechatCallbackapiTest
 					}
 					else
 					{
-						$msgType = "text";
-						$contentStr = "签到成功\n已迟到！";
-						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-						echo $resultStr;
+//						添加迟到状态
+						$sql = "UPDATE `user_qiandao` SET `late` = '1' WHERE `from_user` = '$fromUsername'";
+						$res = _update_data($sql);
+						if($res == 1)
+						{
+							$msgType = "text";
+							$contentStr = "签到成功\n已迟到！";
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
+						}
+						else
+						{
+							$msgType = "text";
+							$contentStr = "签到失败\n请重新签到！";
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
+						}
 					}
 
 				}
