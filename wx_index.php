@@ -270,7 +270,7 @@ class wechatCallbackapiTest
 
 						$title = "签到列表\n[工号===姓名===状态===时间]";
 						$PicUrl = "";
-						$Description = "$uid===$name===$late===$time1";
+						$Description = "111";
 						$Url = "";
 						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
