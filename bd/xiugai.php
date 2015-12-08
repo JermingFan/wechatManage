@@ -16,7 +16,7 @@ require_once '../sql.php';
 $uid = $_GET['uid'];
 ?>
 <div class="container">
-	<form action="http://wglpt.sinaapp.com/bd/bangding.php?openid='.$fromUsername.'" method="post">
+	<form action="http://wglpt.sinaapp.com/bd/xiugai.php" method="post">
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
