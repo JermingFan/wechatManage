@@ -177,7 +177,7 @@ class wechatCallbackapiTest
 //				用户签到
 				if ($keyword == '4' || $keyword == '签到')
 				{
-					$time = strtotime("15:00:00")-time();
+					$time = strtotime("17:00:00")-time();
 					if ($time > 0 && $time < 3600)
 					{
 						$msgType = "text";
@@ -185,10 +185,10 @@ class wechatCallbackapiTest
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
-					else
+					elseif ($time > 3600)
 					{
 						$msgType = "text";
-						$contentStr = "shijian1";
+						$contentStr = "太早了";
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
