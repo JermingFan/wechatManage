@@ -10,11 +10,19 @@
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 </head>
 <body>
+
 <?php
 require_once '../sql.php';
 
 $uid = $_GET['uid'];
+if(isset($_POST["submit"]))
+{
+	$type = $_POST["type"];
+	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` ='$uid'";
+	$res = _update_data($sql);
+}
 ?>
+
 <div class="container">
 	<form action="http://wglpt.sinaapp.com/bd/xiugai.php" method="post">
 		<h2 class="form-signin-heading">请修改权限</h2>
@@ -34,14 +42,7 @@ $uid = $_GET['uid'];
 		</div>
 	</form>
 </div>
-<?php
-if(isset($_POST["submit"]))
-{
-	$type = $_POST["type"];
-	$sql = "UPDATE `user_bangding` SET `type` = '$type' WHERE `uid` ='$uid'";
-	$res = _update_data($sql);
-}
-?>
+
 <footer class="footer">
 	<div class="container">
 		<label>Copyright ©2015<br/>Powered By 范哲铭 & 毕设</label>
