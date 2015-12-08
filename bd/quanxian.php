@@ -22,7 +22,7 @@
 	<?php
 	require_once '../sql.php';
 
-	$sql = "SELECT * FROM `user_info`";
+	$sql = "SELECT i.`name`, i.`uid`, i.`job`,b.`type` FROM `user_info` i , `user_bangding` b WHERE i.`uid` = b.`uid`";
 	$res = _select_data($sql);
 	while ($rows = mysql_fetch_array($res))
 	{
@@ -32,7 +32,7 @@
 			<td><?php echo $rows['name'] ?></td>
 			<td><?php echo $rows['uid'] ?></td>
 			<td><?php echo $rows['job'] ?></td>
-			<td><?php echo $rows['job'] ?></td>
+			<td><?php echo $rows['type'] ?></td>
 			<td><a href="http://wglpt.sinaapp.com/bd/quanxian.php">修改</a></td>
 		</tr>
 
