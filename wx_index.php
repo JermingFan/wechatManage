@@ -191,11 +191,17 @@ class wechatCallbackapiTest
 						$res = _insert_data($sql);
 						if($res == 1)
 						{
-							echo "签到成功~";
+							$msgType = "text";
+							$contentStr = "签到成功~";
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
 						}
 						else
 						{
-							echo "签到失败\n请重新签到！";
+							$msgType = "text";
+							$contentStr = "签到失败\n请重新签到！";
+							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+							echo $resultStr;
 						}
 					}
 					else
