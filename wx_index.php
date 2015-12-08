@@ -177,23 +177,23 @@ class wechatCallbackapiTest
 //				用户签到
 				if ($keyword == '4' || $keyword == '签到')
 				{
-//					签到时间为9点，8点开始
-					$time = strtotime("9:00:00")-time();
-					if ($time > 0 && $time < 3600)
-					{
-						$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
-						$result = _select_data($sql);
+					$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
+					$result = _select_data($sql);
 //					查找是否已存在信息
-						while ($rows = mysql_fetch_array($result))
-						{
-							$data = $rows['from_user'];
-						}
+					while ($rows = mysql_fetch_array($result))
+					{
+						$data = $rows['from_user'];
+					}
 
-						if (empty($data))
+					if (empty($data))
+					{
+//						签到时间为9点，8点开始
+						$time = strtotime("9:00:00") - time();
+						if ($time > 0 && $time < 3600)
 						{
 							$sql = "INSERT INTO `user_qiandao` (`from_user`) values ('$fromUsername')";
 							$res = _insert_data($sql);
-							if($res == 1)
+							if ($res == 1)
 							{
 								$msgType = "text";
 								$contentStr = "签到成功~";
@@ -209,41 +209,41 @@ class wechatCallbackapiTest
 							}
 
 						}
-						else
+						elseif ($time > 3600)
 						{
 							$msgType = "text";
-							$contentStr = "你已签到！";
+							$contentStr = "还没到签到时间！";
 							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 							echo $resultStr;
 						}
-
-					}
-					elseif ($time > 3600)
-					{
-						$msgType = "text";
-						$contentStr = "还没到签到时间！";
-						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-						echo $resultStr;
+						else
+						{
+//							添加迟到状态
+							$sql = "INSERT INTO `user_qiandao` (`from_user`, `late`) values ('$fromUsername', '1')";
+							$res = _insert_data($sql);
+							if ($res == 1)
+							{
+								$msgType = "text";
+								$contentStr = "签到成功\n已迟到！";
+								$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+								echo $resultStr;
+							}
+							else
+							{
+								$msgType = "text";
+								$contentStr = "签到失败\n请重新签到！";
+								$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+								echo $resultStr;
+							}
+						}
+						
 					}
 					else
 					{
-//						添加迟到状态
-						$sql = "UPDATE `user_qiandao` SET `late` = '1' WHERE `from_user` = '$fromUsername'";
-						$res = _update_data($sql);
-						if($res == 1)
-						{
-							$msgType = "text";
-							$contentStr = "签到成功\n已迟到！";
-							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-							echo $resultStr;
-						}
-						else
-						{
-							$msgType = "text";
-							$contentStr = "签到失败\n请重新签到！";
-							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-							echo $resultStr;
-						}
+						$msgType = "text";
+						$contentStr = "你已签到！";
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
 					}
 
 				}
