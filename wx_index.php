@@ -109,6 +109,7 @@ class wechatCallbackapiTest
 
 				}
 
+//				用户修改权限
 				elseif ($keyword == '2' || $keyword == '修改权限')
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
@@ -134,7 +135,7 @@ class wechatCallbackapiTest
 				}
 
 //				用户解除绑定
-				elseif ($keyword == '#' || $keyword == '解绑' || $keyword == '解除绑定')
+				elseif ($keyword == '3' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
@@ -171,6 +172,40 @@ class wechatCallbackapiTest
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
+				}
+
+//				用户签到
+				if ($keyword == '4' || $keyword == '签到')
+				{
+					$sql = "SELECT `uid` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
+					$result = _select_data($sql);
+//					查找是否已存在信息
+					while ($rows = mysql_fetch_array($result))
+					{
+						$data = $rows['from_user'];
+					}
+
+					if (empty($data))
+					{
+						$sql = "INSERT INTO `user_qiandao` (`from_user`) values ('$fromUsername')";
+						$res = _insert_data($sql);
+						if($res == 1)
+						{
+							echo "签到成功~";
+						}
+						else
+						{
+							echo "签到失败\n请重新签到！";
+						}
+					}
+					else
+					{
+						$msgType = "text";
+						$contentStr = "用户".$data."已签到！";
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
+
 				}
 
 				else
