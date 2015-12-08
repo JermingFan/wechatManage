@@ -177,52 +177,56 @@ class wechatCallbackapiTest
 //				用户签到
 				if ($keyword == '4' || $keyword == '签到')
 				{
-					$time = strtotime("17:00:00")-time();
+					$time = strtotime("16:00:00")-time();
 					if ($time > 0 && $time < 3600)
 					{
-						$msgType = "text";
-						$contentStr = "shijian";
-						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-						echo $resultStr;
-					}
-					elseif ($time > 3600)
-					{
-						$msgType = "text";
-						$contentStr = "太早了";
-						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-						echo $resultStr;
-					}
-					$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
-					$result = _select_data($sql);
+						$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
+						$result = _select_data($sql);
 //					查找是否已存在信息
-					while ($rows = mysql_fetch_array($result))
-					{
-						$data = $rows['from_user'];
-					}
-
-					if (empty($data))
-					{
-						$sql = "INSERT INTO `user_qiandao` (`from_user`) values ('$fromUsername')";
-						$res = _insert_data($sql);
-						if($res == 1)
+						while ($rows = mysql_fetch_array($result))
 						{
-							$msgType = "text";
-							$contentStr = "签到成功~";
-							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-							echo $resultStr;
+							$data = $rows['from_user'];
+						}
+
+						if (empty($data))
+						{
+							$sql = "INSERT INTO `user_qiandao` (`from_user`) values ('$fromUsername')";
+							$res = _insert_data($sql);
+							if($res == 1)
+							{
+								$msgType = "text";
+								$contentStr = "签到成功~";
+								$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+								echo $resultStr;
+							}
+							else
+							{
+								$msgType = "text";
+								$contentStr = "签到失败\n请重新签到！";
+								$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+								echo $resultStr;
+							}
 						}
 						else
 						{
 							$msgType = "text";
-							$contentStr = "签到失败\n请重新签到！";
+							$contentStr = "你已签到！";
 							$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 							echo $resultStr;
 						}
+
+					}
+					elseif ($time > 3600)
+					{
+						$msgType = "text";
+						$contentStr = "还没到签到时间！";
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
 					}
 					else
 					{
 						$msgType = "text";
-						$contentStr = "你已签到！";
+						$contentStr = "签到成功\n已迟到！";
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
