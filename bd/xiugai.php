@@ -20,7 +20,7 @@ $uid = $_GET['$uid'];
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
-			<input name="id" type="text" class="form-control" placeholder="<?php echo $uid ?>" required/>
+			<input name="id" type="text" class="form-control" placeholder="<?php echo 111 ?>" required/>
 		</div>
 		<div class="form-group">
 			<label>权限</label>
