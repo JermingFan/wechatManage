@@ -13,14 +13,14 @@
 <?php
 require_once '../sql.php';
 
-$uid = $_GET['$uid'];
+$uid = $_GET['uid'];
 ?>
 <div class="container">
 	<form action="http://wglpt.sinaapp.com/bd/bangding.php?openid='.$fromUsername.'" method="post">
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
-			<input name="id" type="text" class="form-control" placeholder="<?php echo 111 ?>" required/>
+			<input name="id" type="text" class="form-control" placeholder="<?php echo $uid ?>" required/>
 		</div>
 		<div class="form-group">
 			<label>权限</label>
