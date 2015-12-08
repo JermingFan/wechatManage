@@ -37,7 +37,7 @@ if(isset($_POST["submit"]))
 		<h2 class="form-signin-heading">请修改权限</h2>
 		<div class="form-group">
 			<label>工号</label>
-			<input name="uid" type="text" class="form-control" value="<?php echo $_GET['uid'] ?>" placeholder="<?php echo $_GET['uid'] ?>" disabled />
+			<input name="uid" type="text" class="form-control" value="<?php echo $_GET['uid'] ?>" placeholder="<?php echo $_GET['uid'] ?>" />
 		</div>
 		<div class="form-group">
 			<label>权限</label>
