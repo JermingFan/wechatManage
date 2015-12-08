@@ -177,7 +177,7 @@ class wechatCallbackapiTest
 //				用户签到
 				if ($keyword == '4' || $keyword == '签到')
 				{
-					$sql = "SELECT `uid` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
+					$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
 					$result = _select_data($sql);
 //					查找是否已存在信息
 					while ($rows = mysql_fetch_array($result))
@@ -201,7 +201,7 @@ class wechatCallbackapiTest
 					else
 					{
 						$msgType = "text";
-						$contentStr = "用户".$data."已签到！";
+						$contentStr = "你已签到！";
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 						echo $resultStr;
 					}
