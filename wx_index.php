@@ -177,6 +177,8 @@ class wechatCallbackapiTest
 //				用户签到
 				if ($keyword == '4' || $keyword == '签到')
 				{
+//					后续逻辑增加未签到
+//					每天定时corn清空表
 					$sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
 					$result = _select_data($sql);
 //					查找是否已存在信息
@@ -250,6 +252,7 @@ class wechatCallbackapiTest
 
 				}
 
+//				查看签到
 				if ($keyword == '5' || $keyword == '查看签到')
 				{
 					$sql = "SELECT q.`late`, q.`time`, i.`uid`, i.`name` FROM `user_qiandao` q, `user_info` i WHERE q.`from_user` = i.`from_user`";
