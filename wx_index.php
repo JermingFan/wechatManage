@@ -284,13 +284,36 @@ class wechatCallbackapiTest
 					$sql = "SELECT `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
 					$rows = mysql_fetch_array($res);
-
+					if ($rows['state'] == 1)
+					{
+//						开始读取用户列表
+						$sql = "SELECT * FROM `user_info`";
+						$res = _select_data($sql);
+						while ($rows = mysql_fetch_array($res))
+						{
+							if ($rows['state'] == 1)
+							{
+								$state = '在职';
+							}
+							else
+							{
+								$state = '其他';
+							}
+							$title = "工号---姓名---职务---状态";
+							$PicUrl = "";
+							$Description = $rows['uid'].'-----'.$rows['name'].'-----'.$rows['job'].'-----'.$state;
+							$Url = "";
+							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+							echo $resultStr;
+						}
+					}
+					else
+					{
 					$msgType = "text";
-					$contentStr = $rows['state'];
+					$contentStr = '对不起，你没有权限！';
 					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 					echo $resultStr;
-
-				}
+					}
 				else
 				{
 					echo "Input something...";
