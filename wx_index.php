@@ -269,7 +269,7 @@ class wechatCallbackapiTest
 						{
 							$late = '正常';
 						}
-						$v .= $rows['uid'] . '----' . $rows['name'] . '----' . $state. '----' . $rows['time'] . "\n";
+						$v .= $rows['uid'] . '----' . $rows['name'] . '----' . $late. '----' . $rows['time'] . "\n";
 
 						$title = "工号---姓名---状态---时间";
 						$PicUrl = "";
