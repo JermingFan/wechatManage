@@ -308,9 +308,9 @@ class wechatCallbackapiTest
 						}
 
 						$title = "工号---姓名---职务---状态";
-						$PicUrl = "";
+						$PicUrl = "http://wglpt.sinaapp.com/yh/yhlb.php";
 						$Description = $v;
-						$Url = "http://wglpt.sinaapp.com/yh/yhlb.php";
+						$Url = "";
 						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
 					}
