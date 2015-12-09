@@ -1,6 +1,6 @@
 <?php
 require_once './sql.php';
-require_once './yhxx/yhxx.php';
+require_once './yhxx.php';
 
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
