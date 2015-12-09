@@ -26,8 +26,8 @@ function _yhxx()
 
 		foreach($arr as $a)
 		{
-			$d.= $a['uid'].'---'.$a['name'].'---'.$a['job'] ;
+			$a.= "$a[uid].'---'.$a[name].'---'.$a[job]". "\n";
 		}
-		return $d;
+		return $a;
 }
 ?>
