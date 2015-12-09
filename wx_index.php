@@ -1,6 +1,6 @@
 <?php
 require_once './sql.php';
-require_once './yhxx/yhxx.php'
+require_once './yhxx/yhxx.php';
 
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -288,13 +288,14 @@ class wechatCallbackapiTest
 					if ($rows['state'] == 1)
 					{
 //						开始读取用户列表
+
 							$title = "工号---姓名---职务---状态";
 							$PicUrl = "";
 							$Description = _yhxx();
 							$Url = "";
 							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 							echo $resultStr;
-						}
+
 
 					}
 					else
