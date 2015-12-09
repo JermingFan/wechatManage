@@ -23,7 +23,7 @@ function _yhxx()
 //
 //		foreach ($arr as $a) {
 
-			$v=$rows['uid'];
+			$v=''.$rows['uid'].'';
 		}
 		return $v;
 
