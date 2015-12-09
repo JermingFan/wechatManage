@@ -303,7 +303,7 @@ class wechatCallbackapiTest
 							$PicUrl = "";
 							$Description[] = $rows['uid'] . '-----' . $rows['name'] . '-----' . $rows['job'] . '-----' . $state;
 							$Url = "";
-							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description[0], $PicUrl, $Url);
 							echo $resultStr;
 						}
 
