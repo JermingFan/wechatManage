@@ -301,7 +301,7 @@ class wechatCallbackapiTest
 							}
 							$title = "工号---姓名---职务---状态";
 							$PicUrl = "";
-							$Description = $rows['uid'].'-----'.$rows['name'].'-----'.$rows['job'].'-----'.$state;
+							$Description = ''//$rows['uid'].'-----'.$rows['name'].'-----'.$rows['job'].'-----'.$state;
 							$Url = "";
 							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 							echo $resultStr;
