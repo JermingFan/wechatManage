@@ -21,7 +21,6 @@
 	<?php
 	require_once '../sql.php';
 
-	$fromUsername=$_GET["openid"];
 	$sql = "SELECT * FROM `user_info`";
 	$res = _select_data($sql);
 	while ($rows = mysql_fetch_array($res))
