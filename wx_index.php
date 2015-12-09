@@ -258,6 +258,7 @@ class wechatCallbackapiTest
 				{
 					$sql = "SELECT q.`late`, q.`time`, i.`uid`, i.`name` FROM `user_qiandao` q, `user_info` i WHERE q.`from_user` = i.`from_user`";
 					$res = _select_data($sql);
+					$v = '';
 					while ($rows = mysql_fetch_array($res))
 					{
 						if ($rows['late'] == '1')
@@ -268,9 +269,11 @@ class wechatCallbackapiTest
 						{
 							$late = '正常';
 						}
+						$v .= $rows['uid'] . '----' . $rows['name'] . '----' . $state. '----' . $rows['time'] . "\n";
+
 						$title = "工号---姓名---状态---时间";
 						$PicUrl = "";
-						$Description = $rows['uid'].'-----'.$rows['name'].'-----'.$late.'-----'.$rows['time'];
+						$Description = $v;
 						$Url = "";
 						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
@@ -301,68 +304,67 @@ class wechatCallbackapiTest
 							{
 								$state = '其他';
 							}
-							$v.= $rows['uid'].'----'.$rows['name'].'----'.$rows['job'].'----'.$state."\n";
+							$v .= $rows['uid'] . '----' . $rows['name'] . '----' . $rows['job'] . '----' . $state . "\n";
 						}
 
-							$title = "工号---姓名---职务---状态";
-							$PicUrl = "";
-							$Description = $v;
-							$Url = "";
-							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
-							echo $resultStr;
-
-
-					}
-					else
-					{
-						$msgType = "text";
-						$contentStr = '对不起，你没有权限！';
-						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						$title = "工号---姓名---职务---状态";
+						$PicUrl = "";
+						$Description = $v;
+						$Url = "";
+						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
 					}
 				}
 				else
 				{
-					echo "Input something...";
+					$msgType = "text";
+					$contentStr = '对不起，你没有权限！';
+					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+					echo $resultStr;
 				}
 			}
+			else
+			{
+				echo "Input something...";
+			}
+		}
 
-		}
-		else
-		{
-			echo "";
-			exit;
-		}
 	}
+else
+{
+echo "";
+exit;
+}
+}
 
-	private function checkSignature()
+private function checkSignature()
+{
+	// you must define TOKEN by yourself
+	if (!defined("TOKEN"))
 	{
-		// you must define TOKEN by yourself
-		if (!defined("TOKEN"))
-		{
-			throw new Exception('TOKEN is not defined!');
-		}
-
-		$signature = $_GET["signature"];
-		$timestamp = $_GET["timestamp"];
-		$nonce = $_GET["nonce"];
-
-		$token = TOKEN;
-		$tmpArr = array($token, $timestamp, $nonce);
-		// use SORT_STRING rule
-		sort($tmpArr, SORT_STRING);
-		$tmpStr = implode( $tmpArr );
-		$tmpStr = sha1( $tmpStr );
-
-		if( $tmpStr == $signature )
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		throw new Exception('TOKEN is not defined!');
 	}
+
+	$signature = $_GET["signature"];
+	$timestamp = $_GET["timestamp"];
+	$nonce = $_GET["nonce"];
+
+	$token = TOKEN;
+	$tmpArr = array($token, $timestamp, $nonce);
+	// use SORT_STRING rule
+	sort($tmpArr, SORT_STRING);
+	$tmpStr = implode( $tmpArr );
+	$tmpStr = sha1( $tmpStr );
+
+	if( $tmpStr == $signature )
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 }
 
 ?>
