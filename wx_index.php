@@ -314,57 +314,56 @@ class wechatCallbackapiTest
 						$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 						echo $resultStr;
 					}
+					else
+					{
+						$msgType = "text";
+						$contentStr = '对不起，你没有权限！';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+					}
 				}
-				else
-				{
-					$msgType = "text";
-					$contentStr = '对不起，你没有权限！';
-					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-					echo $resultStr;
-				}
+
 			}
 			else
 			{
 				echo "Input something...";
 			}
 		}
-
+		else
+		{
+			echo "";
+			exit;
+		}
 	}
-else
-{
-echo "";
-exit;
-}
-}
 
-private function checkSignature()
-{
-	// you must define TOKEN by yourself
-	if (!defined("TOKEN"))
+	private function checkSignature()
 	{
-		throw new Exception('TOKEN is not defined!');
-	}
+		// you must define TOKEN by yourself
+		if (!defined("TOKEN"))
+		{
+			throw new Exception('TOKEN is not defined!');
+		}
 
-	$signature = $_GET["signature"];
-	$timestamp = $_GET["timestamp"];
-	$nonce = $_GET["nonce"];
+		$signature = $_GET["signature"];
+		$timestamp = $_GET["timestamp"];
+		$nonce = $_GET["nonce"];
 
-	$token = TOKEN;
-	$tmpArr = array($token, $timestamp, $nonce);
-	// use SORT_STRING rule
-	sort($tmpArr, SORT_STRING);
-	$tmpStr = implode( $tmpArr );
-	$tmpStr = sha1( $tmpStr );
+		$token = TOKEN;
+		$tmpArr = array($token, $timestamp, $nonce);
+		// use SORT_STRING rule
+		sort($tmpArr, SORT_STRING);
+		$tmpStr = implode( $tmpArr );
+		$tmpStr = sha1( $tmpStr );
 
-	if( $tmpStr == $signature )
-	{
-		return true;
+		if( $tmpStr == $signature )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
-	else
-	{
-		return false;
-	}
-}
 }
 
 ?>
