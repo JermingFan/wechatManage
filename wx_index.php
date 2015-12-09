@@ -110,7 +110,7 @@ class wechatCallbackapiTest
 				}
 
 //				用户修改权限
-				elseif ($keyword == '2' || $keyword == '修改权限')
+				if ($keyword == '2' || $keyword == '修改权限')
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
@@ -135,7 +135,7 @@ class wechatCallbackapiTest
 				}
 
 //				用户解除绑定
-				elseif ($keyword == '3' || $keyword == '解绑' || $keyword == '解除绑定')
+				if ($keyword == '3' || $keyword == '解绑' || $keyword == '解除绑定')
 				{
 					$sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
 					$res = _select_data($sql);
@@ -277,6 +277,20 @@ class wechatCallbackapiTest
 
 				}
 
+//				用户信息
+				if ($keyword == '6' || $keyword == '信息' || $keyword == '查看信息')
+				{
+//					先检查用户是否在职
+					$sql = "SELECT `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
+					$res = _select_data($sql);
+					$rows = mysql_fetch_array($res);
+
+					$msgType = "text";
+					$contentStr = $rows['state'];
+					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+					echo $resultStr;
+
+				}
 				else
 				{
 					echo "Input something...";
