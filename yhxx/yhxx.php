@@ -6,14 +6,11 @@ function _yhxx()
 	$sql = "SELECT * FROM `user_info`";
 	$res = _select_data($sql);
 	$arr = array();
-	while ($rows = mysql_fetch_array($res))
-	{
-		if ($rows['state'] == 1)
-		{
+	while ($rows = mysql_fetch_array($res)) {
+		if ($rows['state'] == 1) {
 			$state = '在职';
 		}
-		else
-		{
+		else {
 			$state = '其他';
 		}
 
@@ -24,10 +21,10 @@ function _yhxx()
 			'state' => $state,
 		);
 
-		foreach($arr as $a)
-		{
-			$a.= "$a[uid].'---'.$a[name].'---'.$a[job]". "\n";
+		foreach ($arr as $a) {
+			$v .= "$a[uid].'---'.$a[name].'---'.$a[job]" . "\n";
 		}
-		return $a;
+		return $v;
+	}
 }
 ?>
