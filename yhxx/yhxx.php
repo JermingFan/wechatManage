@@ -14,17 +14,18 @@ function _yhxx()
 			$state = '其他';
 		}
 
-		$arr = array(
-			'uid' => $rows['uid'],
-			'name' => $rows['name'],
-			'job' => $rows['job'],
-			'state' => $state,
-		);
+//		$arr = array(
+//			'uid' => $rows['uid'],
+//			'name' => $rows['name'],
+//			'job' => $rows['job'],
+//			'state' => $state,
+//		);
+//
+//		foreach ($arr as $a) {
 
-		foreach ($arr as $a) {
-			$v="$a[uid]---$a[name]---$a[job]" . "\n";
+			$v="$rows[uid]---$rows[name]---$rows[job]" . "\n";
 		}
 		return $v;
-	}
+
 }
 ?>
