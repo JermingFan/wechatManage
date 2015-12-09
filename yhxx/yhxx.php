@@ -5,6 +5,7 @@ function _yhxx()
 {
 	$sql = "SELECT * FROM `user_info`";
 	$res = _select_data($sql);
+	$v = '';
 	while ($rows = mysql_fetch_array($res))
 	{
 		if ($rows['state'] == 1)
@@ -15,8 +16,7 @@ function _yhxx()
 		{
 			$state = '其他';
 		}
-		$v = '';
-		$v.= $rows['uid'];
+		$v.= $rows['uid'].'';
 	}
 	return $v;
 
