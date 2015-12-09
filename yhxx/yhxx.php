@@ -23,7 +23,7 @@ function _yhxx()
 //
 //		foreach ($arr as $a) {
 
-			$v="$rows[uid]---$rows[name]---$rows[job]" . "\n";
+			$v=$rows['uid'];
 		}
 		return $v;
 
