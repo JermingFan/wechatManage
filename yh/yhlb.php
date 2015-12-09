@@ -12,10 +12,10 @@
 <body>
 <table class="table table-hover">
 	<tr>
-		<th style="width: 20px">工号</th>
-		<th style="width:20px">姓名</th>
-		<th style="width:30px">手机</th>
-		<th style="width: 30px">地址</th>
+		<th>工号</th>
+		<th>姓名</th>
+		<th>手机</th>
+		<th>地址</th>
 	</tr>
 
 	<?php
