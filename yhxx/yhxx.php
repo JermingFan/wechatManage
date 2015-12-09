@@ -22,7 +22,7 @@ function _yhxx()
 		);
 
 		foreach ($arr as $a) {
-			$v .= "$a[uid].'---'.$a[name].'---'.$a[job]" . "\n";
+			$v="$a[uid]---$a[name]---$a[job]" . "\n";
 		}
 		return $v;
 	}
