@@ -1,6 +1,6 @@
 <?php
 require_once './sql.php';
-require_once './yhxx.php';
+//require_once './yhxx/yhxx.php';
 
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -289,9 +289,25 @@ class wechatCallbackapiTest
 					{
 //						开始读取用户列表
 
+						$sql = "SELECT * FROM `user_info`";
+						$res = _select_data($sql);
+						$v = '';
+						while ($rows = mysql_fetch_array($res))
+						{
+							if ($rows['state'] == 1)
+							{
+								$state = '在职';
+							}
+							else
+							{
+								$state = '其他';
+							}
+							$v.= $rows['uid'].'';
+						}
+
 							$title = "工号---姓名---职务---状态";
 							$PicUrl = "";
-							$Description = _yhxx();
+							$Description = $v;
 							$Url = "";
 							$resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
 							echo $resultStr;
