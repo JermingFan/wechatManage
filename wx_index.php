@@ -288,7 +288,6 @@ class wechatCallbackapiTest
 					if ($rows['state'] == 1)
 					{
 //						开始读取用户列表
-
 						$sql = "SELECT * FROM `user_info`";
 						$res = _select_data($sql);
 						$v = '';
@@ -302,7 +301,7 @@ class wechatCallbackapiTest
 							{
 								$state = '其他';
 							}
-							$v.= $rows['uid'].'';
+							$v.= $rows['uid'].'----'.$rows['name'].'----'.$rows['job'].'----'.$state."\n";
 						}
 
 							$title = "工号---姓名---职务---状态";
