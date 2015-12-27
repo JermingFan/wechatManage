@@ -22,9 +22,9 @@ require_once '../sql.php';
 
 $fromUsername=$_GET["openid"];
 
-$sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = ".$fromUsername;
-$res = _select_data($sql);
-$rows = mysql_fetch_array($res);
+//$sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = ".$fromUsername;
+//$res = _select_data($sql);
+//$rows = mysql_fetch_array($res);
 
 if(isset($_POST["submit"]))
 {
