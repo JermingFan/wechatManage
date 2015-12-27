@@ -35,7 +35,7 @@ if(isset($_POST["submit"]))
 function qingjia($fromUsername, $uid, $long, $info)
 { $a = time();
     $b = date();
-    var_dump($a,$fromUsername, $uid, $long, $info);die;
+    var_dump($a);die;
     $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
     if($res == 1)
