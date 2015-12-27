@@ -22,16 +22,16 @@ require_once '../sql.php';
 
 $fromUsername=$_GET["openid"];
 
-$sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = '$fromUsername'";
-$res = _select_data($sql);
-$rows = mysql_fetch_array($res);
+
 
 if(isset($_POST["submit"]))
 {
     qingjia($fromUsername, trim($_POST["uid"]), trim($_POST["long"]), trim($_POST["info"]));
     exit();
 }
-
+$sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = '$fromUsername'";
+$res = _select_data($sql);
+$rows = mysql_fetch_array($res);
 function qingjia($fromUsername, $uid, $long, $info)
 { $a = time();
     $b = date();
@@ -51,7 +51,7 @@ function qingjia($fromUsername, $uid, $long, $info)
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/qj/qingjia.php" method="post">
+    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid='.$fromUsername.'" method="post">
         <h2 class="form-signin-heading">请假详情</h2>
         <div class="form-group">
             <label>工号</label>
