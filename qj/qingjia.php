@@ -34,8 +34,8 @@ $res = _select_data($sql);
 $rows = mysql_fetch_array($res);
 function qingjia($fromUsername, $uid, $long, $info)
 { $a = time();
-    $b = date('Y-m-d', time());
-    var_dump($b+$long.'');die;
+    $b = date('Y-m-d', time()+$long);
+    var_dump($b);die;
 //    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
 //    $res = _insert_data($sql);
 //    if($res == 1)
