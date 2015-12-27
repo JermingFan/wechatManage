@@ -28,13 +28,14 @@ $rows = mysql_fetch_array($res);
 
 if(isset($_POST["submit"]))
 {
-    qingjia($fromUsername, trim($_POST["uid"]), trim($_POST["time"]), trim($_POST["endtime"]), trim($_POST["info"]));
+    qingjia($fromUsername, trim($_POST["uid"]), trim($_POST["long"]), trim($_POST["info"]));
     exit();
 }
 
-function qingjia($fromUsername, $uid, $time, $endtime, $info)
+function qingjia($fromUsername, $uid, $long, $info)
 {
-    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, 'time', 'endtime', 'info') values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
+    var_dump(date(),date()+$long);die;
+    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
     if($res == 1)
     {
@@ -42,7 +43,7 @@ function qingjia($fromUsername, $uid, $time, $endtime, $info)
     }
     else
     {
-        echo "请假".$uid."失败<br/>请重新绑定~";
+        echo "请假".$uid."失败<br/>请重试~";
     }
 
 }
@@ -71,7 +72,7 @@ function qingjia($fromUsername, $uid, $time, $endtime, $info)
         </div>
         <div class="form-group">
             <label>请假理由</label>
-            <textarea class="form-control"></textarea>
+            <textarea name="info" class="form-control"></textarea>
         </div>
         <div class="form-group">
             <input type="submit" name="submit" value="确定" class="btn btn-success btn-block"/>
