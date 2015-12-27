@@ -35,7 +35,7 @@ if(isset($_POST["submit"]))
 function qingjia($fromUsername, $uid, $long, $info)
 { $a = time();
     $b = date();
-    var_dump($a);die;
+    var_dump($b);die;
 //    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
 //    $res = _insert_data($sql);
 //    if($res == 1)
@@ -51,7 +51,7 @@ function qingjia($fromUsername, $uid, $long, $info)
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid='.$fromUsername.'" method="post">
+    <form action="http://wglpt.sinaapp.com/qj/qingjia.php" method="post">
         <h2 class="form-signin-heading">请假详情</h2>
         <div class="form-group">
             <label>工号</label>
