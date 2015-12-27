@@ -70,6 +70,10 @@ function qingjia($fromUsername, $uid, $time, $endtime, $info)
             </select>
         </div>
         <div class="form-group">
+            <label>请假理由</label>
+            <textarea class="form-control"></textarea>
+        </div>
+        <div class="form-group">
             <input type="submit" name="submit" value="确定" class="btn btn-success btn-block"/>
         </div>
     </form>
@@ -79,9 +83,6 @@ function qingjia($fromUsername, $uid, $time, $endtime, $info)
         <label>Copyright ©2015<br/>Powered By 范哲铭 & 毕设</label>
     </div>
 </footer>
-
-
-?>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
