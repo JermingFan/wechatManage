@@ -36,16 +36,16 @@ function qingjia($fromUsername, $uid, $long, $info)
 { $a = time();
     $b = date();
     var_dump($a);die;
-    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
-    $res = _insert_data($sql);
-    if($res == 1)
-    {
-        echo "请假成功 ↖点击此处返回";
-    }
-    else
-    {
-        echo "请假".$uid."失败<br/>请重试~";
-    }
+//    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
+//    $res = _insert_data($sql);
+//    if($res == 1)
+//    {
+//        echo "请假成功 ↖点击此处返回";
+//    }
+//    else
+//    {
+//        echo "请假".$uid."失败<br/>请重试~";
+//    }
 
 }
 ?>
