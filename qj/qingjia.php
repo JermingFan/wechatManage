@@ -35,7 +35,7 @@ $rows = mysql_fetch_array($res);
 function qingjia($fromUsername, $uid, $long, $info)
 { $a = time();
     $b = date('Y-m-d', time());
-    var_dump($b+$long);die;
+    var_dump($b+$long.'');die;
 //    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
 //    $res = _insert_data($sql);
 //    if($res == 1)
@@ -64,7 +64,7 @@ function qingjia($fromUsername, $uid, $long, $info)
         <div class="form-group">
             <label>请假时长</label>
             <select name="long" class="form-control">
-                <option value="1">1天</option>
+                <option value="86400">1天</option>
                 <option value="2">2天</option>
                 <option value="3">3天</option>
                 <option value="4">4天</option>
