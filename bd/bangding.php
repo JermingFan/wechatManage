@@ -12,6 +12,12 @@
 <body>
 
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Fancy
+ * Date: 15.12.9
+ * Time: 17:22
+ */
 require_once '../sql.php';
 
 $fromUsername=$_GET["openid"];
