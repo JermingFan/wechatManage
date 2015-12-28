@@ -26,7 +26,7 @@ $fromUsername=$_GET["openid"];
 
 if(isset($_POST["submit"]))
 {
-    qingjia(trim($_GET["openid"]), trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
+    qingjia(trim($fromUsername), trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
     exit();
 }
 $sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = '$fromUsername'";
@@ -53,7 +53,7 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid="<?php .$fromUsername ?> method="post">
+    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid="<?php $fromUsername ?> method="post">
         <h2 class="form-signin-heading">请假详情</h2>
         <div class="form-group">
             <label>工号</label>
