@@ -20,9 +20,10 @@
  */
 require_once '../sql.php';
 
-$fromUsername=$_GET["openid"];
-
-
+if ($_GET["openid"])
+{
+    $fromUsername = $_GET["openid"];
+}
 
 if(isset($_POST["submit"]))
 {
