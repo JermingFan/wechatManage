@@ -26,20 +26,20 @@ $fromUsername=$_GET["openid"];
 
 if(isset($_POST["submit"]))
 {
-    qingjia($fromUsername, trim($_POST["uid"]), trim($_POST["long"]), trim($_POST["info"]));
+    qingjia($fromUsername, trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
     exit();
 }
 $sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = '$fromUsername'";
 $res = _select_data($sql);
 $rows = mysql_fetch_array($res);
 
-function qingjia($fromUsername, $uid, $long, $info)
+function qingjia($fromUsername, $name, $uid, $long, $info)
 {
     $time = date('Y-m-d', time());
     $endtime = date('Y-m-d', time()+$long);
-    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
+    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$name', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
-    var_dump($res);die;
+    var_dump($sql);die;
     if($res == 1)
     {
         echo "请假成功 ↖点击此处返回";
