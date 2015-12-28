@@ -26,7 +26,7 @@ $fromUsername=$_GET["openid"];
 
 if(isset($_POST["submit"]))
 {
-    var_dump($_GET["openid"]);die;
+    var_dump($_GET);die;
     qingjia(trim($_GET["openid"]), trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
     exit();
 }
