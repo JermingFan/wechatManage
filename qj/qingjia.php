@@ -39,7 +39,7 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
     $endtime = date('Y-m-d', time()+$long);
     $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ('123', '$uid', '$name', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
-    var_dump($sql);die;
+    var_dump($fromUsername);die;
     if($res == 1)
     {
         echo "请假成功 ↖点击此处返回";
