@@ -53,7 +53,7 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid='.$fromUsername.'" method="post">
+    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid="<?php .$fromUsername ?> method="post">
         <h2 class="form-signin-heading">请假详情</h2>
         <div class="form-group">
             <label>工号</label>
