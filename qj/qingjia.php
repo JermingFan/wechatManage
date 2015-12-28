@@ -25,8 +25,8 @@ $fromUsername=$_GET["openid"];
 
 
 if(isset($_POST["submit"]))
-{var_dump($_POST);die;
-    qingjia(trim($_GET["openid"]), trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
+{
+    qingjia(trim($_POST['fromusername']), trim($_POST['uid']), trim($_POST['name']), trim($_POST['long']), trim($_POST['info']));
     exit();
 }
 $sql = "SElECT * FROM `user_info` WHERE `from_user` = '$fromUsername'";
@@ -37,7 +37,7 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
 {
     $time = date('Y-m-d', time());
     $endtime = date('Y-m-d', time()+$long);
-    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ('123', '$uid', '$name', '$time', '$endtime', '$info')";
+    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$name', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
     var_dump($fromUsername);die;
     if($res == 1)
@@ -53,7 +53,7 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/qj/qingjia.php?openid="<?php $fromUsername ?> method="post">
+    <form action="http://wglpt.sinaapp.com/qj/qingjia.php method="post">
         <h2 class="form-signin-heading">请假详情</h2>
         <input name="fromusername" type="hidden" value="<?php echo $rows['from_user'] ?>" />
         <div class="form-group">
