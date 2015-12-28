@@ -32,20 +32,21 @@ if(isset($_POST["submit"]))
 $sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = '$fromUsername'";
 $res = _select_data($sql);
 $rows = mysql_fetch_array($res);
+
 function qingjia($fromUsername, $uid, $long, $info)
-{ $a = time();
-    $b = date('Y-m-d', time()+$long);
-    var_dump($b);die;
-//    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
-//    $res = _insert_data($sql);
-//    if($res == 1)
-//    {
-//        echo "请假成功 ↖点击此处返回";
-//    }
-//    else
-//    {
-//        echo "请假".$uid."失败<br/>请重试~";
-//    }
+{
+    $time = date('Y-m-d', time());
+    $endtime = date('Y-m-d', time()+$long);
+    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$time', '$endtime', '$info')";
+    $res = _insert_data($sql);
+    if($res == 1)
+    {
+        echo "请假成功 ↖点击此处返回";
+    }
+    else
+    {
+        echo "请假".$uid."失败<br/>请重试~";
+    }
 
 }
 ?>
@@ -65,10 +66,10 @@ function qingjia($fromUsername, $uid, $long, $info)
             <label>请假时长</label>
             <select name="long" class="form-control">
                 <option value="86400">1天</option>
-                <option value="2">2天</option>
-                <option value="3">3天</option>
-                <option value="4">4天</option>
-                <option value="5">5天</option>
+                <option value="172800">2天</option>
+                <option value="259200">3天</option>
+                <option value="345600">4天</option>
+                <option value="432000">5天</option>
             </select>
         </div>
         <div class="form-group">
