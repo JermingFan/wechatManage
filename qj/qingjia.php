@@ -27,7 +27,7 @@ $fromUsername=$_GET["openid"];
 if(isset($_POST["submit"]))
 {
     var_dump($fromUsername);die;
-    qingjia(trim($fromUsername), trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
+    qingjia(trim($_GET["openid"]), trim($_POST["uid"]), trim($_POST["name"]), trim($_POST["long"]), trim($_POST["info"]));
     exit();
 }
 $sql = "SElECT `uid`, `name` FROM `user_info` WHERE `from_user` = '$fromUsername'";
