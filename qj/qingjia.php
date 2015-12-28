@@ -20,7 +20,7 @@
  */
 require_once '../sql.php';
 
-if ($_GET["openid"])
+if (!empty($_GET["openid"]))
 {
     $fromUsername = $_GET["openid"];
 }
@@ -40,7 +40,6 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
     $endtime = date('Y-m-d', time()+$long);
     $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ('$fromUsername', '$uid', '$name', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
-    var_dump($fromUsername);die;
     if($res == 1)
     {
         echo "请假成功 ↖点击此处返回";
