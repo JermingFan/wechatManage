@@ -37,7 +37,7 @@ function qingjia($fromUsername, $name, $uid, $long, $info)
 {
     $time = date('Y-m-d', time());
     $endtime = date('Y-m-d', time()+$long);
-    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ($fromUsername, '$uid', '$name', '$time', '$endtime', '$info')";
+    $sql = "INSERT INTO `user_qingjia` (`from_user`, `uid`, `name`, `time`, `endtime`, `info`) values ('123', '$uid', '$name', '$time', '$endtime', '$info')";
     $res = _insert_data($sql);
     var_dump($sql);die;
     if($res == 1)
