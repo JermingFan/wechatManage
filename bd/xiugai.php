@@ -36,6 +36,10 @@ if(isset($_POST["submit"]))
     }
     exit();
 }
+
+$sql = "SELECT * FROM `user_bangding ` WHERE `uid` = '$uid'";
+$res = _select_data($sql);
+$rows = mysql_fetch_array($res);
 ?>
 
 <div class="container">
@@ -48,8 +52,8 @@ if(isset($_POST["submit"]))
         <div class="form-group">
             <label>权限</label>
             <select name="type" class="form-control">
-                <option value="0">普通</option>
-                <option value="1">高级</option>
+                <option value="0" <?php if (0 == $rows['type']) echo 'selected' ?>>普通</option>
+                <option value="1" <?php if (1 == $rows['type']) echo 'selected' ?>>高级</option>
             </select>
         </div>
         <div class="form-group">
