@@ -34,7 +34,7 @@ $sql = "SElECT * FROM `user_info` WHERE `from_user` = '$fromUsername'";
 $res = _select_data($sql);
 $rows = mysql_fetch_array($res);
 
-function qingjia($fromUsername, $name, $uid, $long, $info)
+function qingjia($fromUsername, $uid, $name, $long, $info)
 {
     $time = date('Y-m-d', time());
     $endtime = date('Y-m-d', time()+$long);
