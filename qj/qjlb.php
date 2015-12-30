@@ -16,6 +16,7 @@
         <th>工号</th>
         <th>开始时间</th>
         <th>结束时间</th>
+        <th>理由</th>
         <th>是否通过</th>
         <th>操作</th>
     </tr>
@@ -30,7 +31,7 @@
     require_once '../sql.php';
 
     $fromUsername=$_GET["openid"];
-    $sql = "SELECT `name`, `uid`, `time`, `endtime`, `pass` FROM `user_qingjia`";
+    $sql = "SELECT `name`, `uid`, `time`, `endtime`, `pass`, `info` FROM `user_qingjia`";
     $res = _select_data($sql);
     while ($rows = mysql_fetch_array($res))
     {
@@ -49,6 +50,7 @@
             <td><?php echo $rows['uid'] ?></td>
             <td><?php echo $rows['time'] ?></td>
             <td><?php echo $rows['endtime'] ?></td>
+            <td><?php echo $rows['info'] ?></td>
             <td><?php echo $pass ?></td>
             <td><a href="http://wglpt.sinaapp.com/bd/xiugai.php?uid=<?php echo $rows['uid'] ?>">修改</a></td>
         </tr>
