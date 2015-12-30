@@ -36,6 +36,12 @@ if(isset($_POST["submit"]))
     }
     exit();
 }
+
+$getid = $_GET['id'];
+$sql = "SELECT * FROM `user_qingjia` WHERE `id` = '$getid'";
+$res = _select_data($sql);
+$rows = mysql_fetch_array($res);
+
 ?>
 
 <div class="container">
@@ -52,8 +58,8 @@ if(isset($_POST["submit"]))
         <div class="form-group">
             <label>是否通过</label>
             <select name="pass" class="form-control">
-                <option value="0">未通过</option>
-                <option value="1">通过</option>
+                <option value="0" <?php if (0 == $rows['pass']) echo 'selected' ?>>未通过</option>
+                <option value="1" <?php if (0 == $rows['pass']) echo 'selected' ?>>通过</option>
             </select>
         </div>
         <div class="form-group">

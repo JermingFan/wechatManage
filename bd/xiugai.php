@@ -36,10 +36,12 @@ if(isset($_POST["submit"]))
     }
     exit();
 }
+
 $getuid = $_GET['uid'];
 $sql = "SELECT * FROM `user_bangding` WHERE `uid` = '$getuid'";
 $res = _select_data($sql);
 $rows = mysql_fetch_array($res);
+
 ?>
 
 <div class="container">
