@@ -36,8 +36,8 @@ if(isset($_POST["submit"]))
     }
     exit();
 }
-
-$sql = "SELECT * FROM `user_bangding ` WHERE `uid` = '$uid'";
+$getuid = $_GET['uid'];
+$sql = "SELECT * FROM `user_bangding ` WHERE `uid` = '$getuid'";
 $res = _select_data($sql);
 $rows = mysql_fetch_array($res);
 ?>
