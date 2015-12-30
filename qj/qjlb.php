@@ -52,7 +52,7 @@
             <td><?php echo $rows['endtime'] ?></td>
             <td><?php echo $rows['info'] ?></td>
             <td><?php echo $pass ?></td>
-            <td><a href="http://wglpt.sinaapp.com/bd/xiugai.php?uid=<?php echo $rows['uid'] ?>">修改</a></td>
+            <td><a href="http://wglpt.sinaapp.com/qj/qjsh.php?uid=<?php echo $rows['uid'] ?>">审核</a></td>
         </tr>
 
         <?php
