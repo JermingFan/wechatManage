@@ -329,7 +329,7 @@ class wechatCallbackapiTest
                     }
                 }
 
-//				用户请假
+//				请假申请
                 if ($keyword == '7' || $keyword == '请假')
                 {
                     $msgType = "text";
@@ -338,6 +338,14 @@ class wechatCallbackapiTest
                     echo $resultStr;
                 }
 
+//                请假审核
+                if ($keyword == '8' || $keyword == '审核请假' || $keyword == '请假审核')
+                {
+                    $msgType = "text";
+                    $contentStr = '<a href="http://wglpt.sinaapp.com/qj/qjlb.php?openid=' . $fromUsername . '">点击进行请假审核~</a>';
+                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                    echo $resultStr;
+                }
             }
             else
             {
