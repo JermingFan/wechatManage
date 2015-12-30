@@ -39,7 +39,7 @@ if(isset($_POST["submit"]))
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/bd/qjsh.php" method="post">
+    <form action="http://wglpt.sinaapp.com/qj/qjsh.php" method="post">
         <h2 class="form-signin-heading">请审核请假</h2>
         <div class="form-group">
             <label>工号</label>
