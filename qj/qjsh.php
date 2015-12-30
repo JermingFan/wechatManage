@@ -23,8 +23,8 @@ require_once '../sql.php';
 if(isset($_POST["submit"]))
 {
     $pass = $_POST["pass"];
-    $uid = $_POST['uid'];
-    $sql = "UPDATE `user_qingjia` SET `pass` = '$pass' WHERE `uid` = '$uid'";
+    $id = $_POST['id'];
+    $sql = "UPDATE `user_qingjia` SET `pass` = '$pass' WHERE `id` = '$id'";
     $res = _update_data($sql);
     if($res == 1)
     {
@@ -41,6 +41,10 @@ if(isset($_POST["submit"]))
 <div class="container">
     <form action="http://wglpt.sinaapp.com/qj/qjsh.php" method="post">
         <h2 class="form-signin-heading">请审核请假</h2>
+        <div class="form-group">
+            <label>请假序号</label>
+            <input name="id" type="text" class="form-control" value="<?php echo $_GET['id'] ?>" placeholder="<?php echo $_GET['id'] ?>" />
+        </div>
         <div class="form-group">
             <label>工号</label>
             <input name="uid" type="text" class="form-control" value="<?php echo $_GET['uid'] ?>" placeholder="<?php echo $_GET['uid'] ?>" />

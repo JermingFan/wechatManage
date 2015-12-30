@@ -31,7 +31,7 @@
     require_once '../sql.php';
 
     $fromUsername=$_GET["openid"];
-    $sql = "SELECT `name`, `uid`, `time`, `endtime`, `pass`, `info` FROM `user_qingjia`";
+    $sql = "SELECT `id`, `name`, `uid`, `time`, `endtime`, `pass`, `info` FROM `user_qingjia`";
     $res = _select_data($sql);
     while ($rows = mysql_fetch_array($res))
     {
@@ -52,7 +52,7 @@
             <td><?php echo $rows['endtime'] ?></td>
             <td><?php echo $rows['info'] ?></td>
             <td><?php echo $pass ?></td>
-            <td><a href="http://wglpt.sinaapp.com/qj/qjsh.php?uid=<?php echo $rows['uid'] ?>">审核</a></td>
+            <td><a href="http://wglpt.sinaapp.com/qj/qjsh.php?id=<?php echo $rows['id'] ?>$uid=<?php echo $rows['uid'] ?>">审核</a></td>
         </tr>
 
         <?php
