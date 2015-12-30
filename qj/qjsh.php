@@ -59,7 +59,7 @@ $rows = mysql_fetch_array($res);
             <label>是否通过</label>
             <select name="pass" class="form-control">
                 <option value="0" <?php if (0 == $rows['pass']) echo 'selected' ?>>未通过</option>
-                <option value="1" <?php if (0 == $rows['pass']) echo 'selected' ?>>通过</option>
+                <option value="1" <?php if (1 == $rows['pass']) echo 'selected' ?>>通过</option>
             </select>
         </div>
         <div class="form-group">
