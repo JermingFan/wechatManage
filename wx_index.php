@@ -83,7 +83,14 @@ class wechatCallbackapiTest
                     $bookTpl.=
                         "<item>
                         <Title>123</Title>
-                        <Description><![CDATA[s]]></Description>
+                        <Description></Description>
+                        <PicUrl><![CDATA[]]></PicUrl>
+                        <Url><![CDATA[]]></Url>
+                        </item>";
+                $bookTpl.=
+                    "<item>
+                        <Title>123</Title>
+                        <Description></Description>
                         <PicUrl><![CDATA[]]></PicUrl>
                         <Url><![CDATA[]]></Url>
                         </item>";
