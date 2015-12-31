@@ -73,29 +73,25 @@ class wechatCallbackapiTest
                 $gz[3] = "【请假】- 输入关键词或数字\n[1]申请请假        [2]审核请假\n[3]查看状态";
                 $gz[4] = "【任务】- 输入关键词或数字\n[1]发布任务        [2]查看任务";
                 $num = count($gz);
-                $gzTpl =
-                    "<xml>
-                        <ToUserName><![CDATA[%s]]></ToUserName>
-                        <FromUserName><![CDATA[%s]]></FromUserName>
-                        <CreateTime>%s</CreateTime>
-                        <MsgType><![CDATA[news]]></MsgType>
-                        <ArticleCount>$num</ArticleCount>
-                        <Articles>";
-                for($i = 1; $i<=$num; $i++)
-                {
-                    $gzTpl.=
-                        "<item>
-                        <Title>$gz[$i]</Title>
-                        <Description></Description>
-                        <PicUrl><![CDATA[]]></PicUrl>
-                        <Url><![CDATA[]]></Url>
-                        </item>";
-                }
-
-                $gzTpl.=
-                    "</Articles>
-                        <FuncFlag>1</FunFlag>
-                        </xml>";
+                $gzTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[news]]></MsgType>
+                            <ArticleCount>$num</ArticleCount>
+                            <Articles>";
+                            for($i = 1; $i<=$num; $i++)
+                            {
+                                $gzTpl .= "<item>
+                                    <Title>$gz[$i]</Title>
+                                    <Description></Description>
+                                    <PicUrl><![CDATA[]]></PicUrl>
+                                    <Url><![CDATA[]]></Url>
+                                    </item>";
+                            }
+                $gzTpl .= "</Articles>
+                            <FuncFlag>1</FunFlag>
+                            </xml>";
                 $resultStr = sprintf($gzTpl, $fromUsername, $toUsername, $time);
                 echo $resultStr;
             }
@@ -114,6 +110,37 @@ class wechatCallbackapiTest
             }
             if (empty($user_flag))
             {
+//                功能
+                if ($keyword == '0' || $keyword == '功能' || $keyword == '首页')
+                {
+                    $gz[1] = "【绑定】- 输入关键词或数字\n[1]绑定角色        [2]修改角色\n[3]取消绑定";
+                    $gz[2] = "【签到】- 输入关键词或数字\n[1]进行签到        [2]查看签到";
+                    $gz[3] = "【请假】- 输入关键词或数字\n[1]申请请假        [2]审核请假\n[3]查看状态";
+                    $gz[4] = "【任务】- 输入关键词或数字\n[1]发布任务        [2]查看任务";
+                    $num = count($gz);
+                    $gzTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[news]]></MsgType>
+                            <ArticleCount>$num</ArticleCount>
+                            <Articles>";
+                    for($i = 1; $i<=$num; $i++)
+                    {
+                        $gzTpl .= "<item>
+                                    <Title>$gz[$i]</Title>
+                                    <Description></Description>
+                                    <PicUrl><![CDATA[]]></PicUrl>
+                                    <Url><![CDATA[]]></Url>
+                                    </item>";
+                    }
+                    $gzTpl .= "</Articles>
+                            <FuncFlag>1</FunFlag>
+                            </xml>";
+                    $resultStr = sprintf($gzTpl, $fromUsername, $toUsername, $time);
+                    echo $resultStr;
+                }
+
 //                用户绑定对应角色
                 if ($keyword == '1' || $keyword == '绑定')
                 {
