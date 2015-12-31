@@ -73,7 +73,7 @@ class wechatCallbackapiTest
 							<FromUserName><![CDATA[%s]]></FromUserName>
 							<CreateTime>%s</CreateTime>
 							<MsgType><![CDATA[news]]></MsgType>//消息类型为news（图文）
-							<ArticleCount>2</ArticleCount>//图文数量为1（单图文）
+							<ArticleCount>3</ArticleCount>//图文数量为1（单图文）
 							<Articles>
 							<item>//第一张图文消息
 							<Title>111</Title> //标题
