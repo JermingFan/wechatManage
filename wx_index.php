@@ -68,7 +68,7 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
-                $bd[] = array("绑定功能");
+                $bd = "绑定功能";
                 $gzTpl =
                     "<xml>
                         <ToUserName><![CDATA[%s]]></ToUserName>
@@ -79,7 +79,7 @@ class wechatCallbackapiTest
                         <Articles>";
                 $gzTpl.=
                     "<item>
-                        <Title>$bd[0]</Title>
+                        <Title>$bd</Title>
                         <Description></Description>
                         <PicUrl><![CDATA[]]></PicUrl>
                         <Url><![CDATA[]]></Url>
