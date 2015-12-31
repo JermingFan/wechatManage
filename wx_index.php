@@ -371,7 +371,7 @@ class wechatCallbackapiTest
                             {
                                 $pass = '未通过';
                             }
-                            $v .= $rows['id'] . ' ---- ' . $rows['name'] . ' ----[  ' . $rows['time'] . ' ~ ' . $rows['endtime'] . '  ]---- ' . $pass . "\n";
+                            $v .= $rows['id'] . ' ---- ' . $rows['name'] . ' ---- [ ' . $rows['time'] . ' ~ ' . $rows['endtime'] . ' ] ---- ' . $pass . "\n";
                         }
 
                         $title = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
