@@ -69,13 +69,9 @@ class wechatCallbackapiTest
             if (!empty($event))
             {
                 $title[] = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
-                $PicUrl[] = "";
-                $Description[] = "第一行 aaaa aa  aaaaaaaa\n第二行 aaaa aa  aaaaaaaa\n第三行 aaaa aa  aaaaaaaa";
-                $Url[] = "";
+                
                 $title[] = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
-                $PicUrl[] = "";
-                $Description[] = "第一行 aaaa aa  aaaaaaaa\n第二行 aaaa aa  aaaaaaaa\n第三行 aaaa aa  aaaaaaaa";
-                $Url[] = "";
+
                 $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
                 echo $resultStr;
             }
