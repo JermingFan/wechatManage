@@ -68,7 +68,7 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
-                $bd = "绑定功能\n[1]绑定对应角色        [2]修改用户角色        [3]取消绑定";
+                $bd = "绑定功能\n[1]绑定对应角色        [2]修改用户角色\n[3]取消绑定";
                 $gzTpl =
                     "<xml>
                         <ToUserName><![CDATA[%s]]></ToUserName>
