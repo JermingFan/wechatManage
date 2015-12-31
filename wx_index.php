@@ -72,13 +72,14 @@ class wechatCallbackapiTest
                 $bd[2] = "【签到】- 输入关键词或数字\n[1]进行签到        [2]查看签到";
                 $bd[3] = "【请假】- 输入关键词或数字\n[1]申请请假        [2]审核请假\n[3]查看状态";
                 $bd[4] = "【任务】- 输入关键词或数字\n[1]发布任务        [2]查看任务";
+                $num = count($bd);
                 $gzTpl =
                     "<xml>
                         <ToUserName><![CDATA[%s]]></ToUserName>
                         <FromUserName><![CDATA[%s]]></FromUserName>
                         <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[news]]></MsgType>
-                        <ArticleCount>4</ArticleCount>
+                        <ArticleCount>$num</ArticleCount>
                         <Articles>";
                 for($i = 1; $i<=4; $i++){
                 $gzTpl.=
