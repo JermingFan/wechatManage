@@ -74,7 +74,7 @@ class wechatCallbackapiTest
                         <FromUserName><![CDATA[%s]]></FromUserName>
                         <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[news]]></MsgType>
-                        <ArticleCount>1</ArticleCount>
+                        <ArticleCount>2</ArticleCount>
                         <Articles>";
 //                foreach($a as $id=>$b)
 //                {
@@ -89,7 +89,7 @@ class wechatCallbackapiTest
                         </item>";
                 $bookTpl.=
                     "<item>
-                        <Title>123</Title>
+                        <Title>1234</Title>
                         <Description></Description>
                         <PicUrl><![CDATA[]]></PicUrl>
                         <Url><![CDATA[]]></Url>
