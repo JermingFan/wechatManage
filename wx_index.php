@@ -88,12 +88,12 @@ class wechatCallbackapiTest
             }
             if (empty($user_flag))
             {
-//				用户绑定对应角色
+//                用户绑定对应角色
                 if ($keyword == '1' || $keyword == '绑定')
                 {
                     $sql = "SELECT `uid` FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
                     $result = _select_data($sql);
-//					查找是否已存在信息
+//                    查找是否已存在信息
                     while ($rows = mysql_fetch_array($result))
                     {
                         $data = $rows['uid'];
@@ -116,7 +116,7 @@ class wechatCallbackapiTest
 
                 }
 
-//				用户修改权限
+//                用户修改权限
                 if ($keyword == '2' || $keyword == '修改权限')
                 {
                     $sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
@@ -141,7 +141,7 @@ class wechatCallbackapiTest
                     }
                 }
 
-//				用户解除绑定
+//                用户解除绑定
                 if ($keyword == '3' || $keyword == '解绑' || $keyword == '解除绑定')
                 {
                     $sql = "SELECT * FROM `user_bangding` WHERE `from_user` = '$fromUsername'";
@@ -181,14 +181,14 @@ class wechatCallbackapiTest
                     }
                 }
 
-//				用户签到
+//                用户签到
                 if ($keyword == '4' || $keyword == '签到')
                 {
-//					后续逻辑增加未签到
-//					每天定时corn清空表
+//                    后续逻辑增加未签到
+//                    每天定时corn清空表
                     $sql = "SELECT `from_user` FROM `user_qiandao` WHERE `from_user` = '$fromUsername'";
                     $result = _select_data($sql);
-//					查找是否已存在信息
+//                    查找是否已存在信息
                     while ($rows = mysql_fetch_array($result))
                     {
                         $data = $rows['from_user'];
@@ -196,7 +196,7 @@ class wechatCallbackapiTest
 
                     if (empty($data))
                     {
-//						签到时间为9点，8点开始
+//                        签到时间为9点，8点开始
                         $time = strtotime("9:00:00") - time();
                         if ($time > 0 && $time < 3600)
                         {
@@ -227,11 +227,11 @@ class wechatCallbackapiTest
                         }
                         else
                         {
-//							添加迟到状态
+//                            添加迟到状态
                             $qtime = date("H:i:s");
                             $sql = "INSERT INTO `user_qiandao` (`from_user`, `late`, `time`) values ('$fromUsername', '1', '$qtime')";
                             $res = _insert_data($sql);
-//							之后要修改绩效的代码*****************
+//                            之后要修改绩效的代码*****************
                             if ($res == 1)
                             {
                                 $msgType = "text";
@@ -287,16 +287,16 @@ class wechatCallbackapiTest
 
                 }
 
-//				用户信息
+//                用户信息
                 if ($keyword == '6' || $keyword == '信息' || $keyword == '查看信息')
                 {
-//					先检查用户是否在职
+//                    先检查用户是否在职
                     $sql = "SELECT `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
                     $res = _select_data($sql);
                     $rows = mysql_fetch_array($res);
                     if ($rows['state'] == 1)
                     {
-//						开始读取用户列表
+//                        开始读取用户列表
                         $sql = "SELECT * FROM `user_info`";
                         $res = _select_data($sql);
                         $v = '';
@@ -346,7 +346,6 @@ class wechatCallbackapiTest
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                 }
-
 
 //                请假结果
                 if ($keyword == '9' || $keyword == '结果' || $keyword == '请假结果')
@@ -404,7 +403,7 @@ class wechatCallbackapiTest
 
     private function checkSignature()
     {
-        // you must define TOKEN by yourself
+//        you must define TOKEN by yourself
         if (!defined("TOKEN"))
         {
             throw new Exception('TOKEN is not defined!');
