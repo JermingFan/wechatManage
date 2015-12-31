@@ -329,7 +329,7 @@ class wechatCallbackapiTest
                     }
                 }
 
-//				请假申请
+//                请假申请
                 if ($keyword == '7' || $keyword == '请假')
                 {
                     $msgType = "text";
@@ -345,6 +345,49 @@ class wechatCallbackapiTest
                     $contentStr = '<a href="http://wglpt.sinaapp.com/qj/qjlb.php?openid=' . $fromUsername . '">点击进行请假审核~</a>';
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
+                }
+
+
+//                请假结果
+                if ($keyword == '9' || $keyword == '结果' || $keyword == '请假结果')
+                {
+//					先检查用户是否在职
+                    $sql = "SELECT `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
+                    $res = _select_data($sql);
+                    $rows = mysql_fetch_array($res);
+                    if ($rows['state'] == 1)
+                    {
+//						开始读取用户列表
+                        $sql = "SELECT * FROM `user_请假`";
+                        $res = _select_data($sql);
+                        $v = '';
+                        while ($rows = mysql_fetch_array($res))
+                        {
+                            if ($rows['pass'] == 1)
+                            {
+                                $pass = '通过';
+                            }
+                            else
+                            {
+                                $pass = '未通过';
+                            }
+                            $v .= $rows['id'] . '----' . $rows['name'] . '----' . $rows['time'] . '----' . $rows['endtime'] . '----' . $pass . "\n";
+                        }
+
+                        $title = "请假序号---姓名---开始时间---结束时间---状态";
+                        $PicUrl = "";
+                        $Description = $v;
+                        $Url = "";
+                        $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+                        echo $resultStr;
+                    }
+                    else
+                    {
+                        $msgType = "text";
+                        $contentStr = '对不起，你没有权限！';
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        echo $resultStr;
+                    }
                 }
             }
             else
