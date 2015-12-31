@@ -68,6 +68,7 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
+                $gz[0] = "欢迎使用微管理系统^_^";
                 $gz[1] = "【绑定】- 输入关键词或数字\n[1]绑定角色        [2]修改角色\n[3]取消绑定";
                 $gz[2] = "【签到】- 输入关键词或数字\n[1]进行签到        [2]查看签到";
                 $gz[3] = "【请假】- 输入关键词或数字\n[1]申请请假        [2]审核请假\n[3]查看状态";
@@ -80,7 +81,7 @@ class wechatCallbackapiTest
                             <MsgType><![CDATA[news]]></MsgType>
                             <ArticleCount>$num</ArticleCount>
                             <Articles>";
-                            for($i = 1; $i<=$num; $i++)
+                            for($i = 0; $i<=$num; $i++)
                             {
                                 $gzTpl .= "<item>
                                     <Title>$gz[$i]</Title>
@@ -113,6 +114,7 @@ class wechatCallbackapiTest
 //                功能
                 if ($keyword == '0' || $keyword == '功能' || $keyword == '首页')
                 {
+                    $gz[0] = "欢迎使用微管理系统^_^";
                     $gz[1] = "【绑定】- 输入关键词或数字\n[1]绑定角色        [2]修改角色\n[3]取消绑定";
                     $gz[2] = "【签到】- 输入关键词或数字\n[1]进行签到        [2]查看签到";
                     $gz[3] = "【请假】- 输入关键词或数字\n[1]申请请假        [2]审核请假\n[3]查看状态";
@@ -125,7 +127,7 @@ class wechatCallbackapiTest
                             <MsgType><![CDATA[news]]></MsgType>
                             <ArticleCount>$num</ArticleCount>
                             <Articles>";
-                    for($i = 1; $i<=$num; $i++)
+                    for($i = 0; $i<=$num; $i++)
                     {
                         $gzTpl .= "<item>
                                     <Title>$gz[$i]</Title>
