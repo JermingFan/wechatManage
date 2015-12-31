@@ -68,39 +68,31 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
-                $imageTpl = "<xml>
-							<ToUserName><![CDATA[%s]]></ToUserName>
-							<FromUserName><![CDATA[%s]]></FromUserName>
-							<CreateTime>%s</CreateTime>
-							<MsgType><![CDATA[news]]></MsgType>//消息类型为news（图文）
-							<ArticleCount>3</ArticleCount>//图文数量为1（单图文）
-							<Articles>
-							<item>//第一张图文消息
-							<Title>111</Title> //标题
-							<Description><![CDATA[%s]]></Description>//描述
-							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
-							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
-							</item>
-							</Articles>
-							<Articles>
-							<item>//第一张图文消息
-							<Title>222</Title> //标题
-							<Description><![CDATA[%s]]></Description>//描述
-							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
-							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
-							</item>
-							</Articles>
-							<Articles>
-							<item>//第一张图文消息
-							<Title>333</Title> //标题
-							<Description><![CDATA[%s]]></Description>//描述
-							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
-							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
-							</item>
-							</Articles>
-							</xml> "
-
-                $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time);
+                $bookTpl =
+                    "<xml>
+                        <ToUserName><![CDATA[%s]]></ToUserName>
+                        <FromUserName><![CDATA[%s]]></FromUserName>
+                        <CreateTime>%s</CreateTime>
+                        <MsgType><![CDATA[news]]></MsgType>
+                        <ArticleCount>1</ArticleCount>
+                        <Articles>";
+//                foreach($a as $id=>$b)
+//                {
+//                    if($id>$no) break;
+//                    else null;
+                    $bookTpl.=
+                        "<item>
+                        <Title>123</Title>
+                        <Description><![CDATA[s]]></Description>
+                        <PicUrl><![CDATA[]]></PicUrl>
+                        <Url><![CDATA[]]></Url>
+                        </item>";
+//                }
+                $bookTpl.=
+                    "</Articles>
+                        <FuncFlag>1</FunFlag>
+                        </xml>";
+                $resultStr = sprintf($bookTpl, $fromUsername, $toUsername, $time);
                 echo $resultStr;
             }
 
