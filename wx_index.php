@@ -68,9 +68,11 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
-                $msgType = "text";
-                $contentStr = "关注事件";
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                $title = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
+                $PicUrl = "";
+                $Description = "第一行 aaaa aa  aaaaaaaa\n第二行 aaaa aa  aaaaaaaa\n第三行 aaaa aa  aaaaaaaa";
+                $Url = "";
+                $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
                 echo $resultStr;
             }
 
@@ -387,6 +389,15 @@ class wechatCallbackapiTest
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                     }
+                }
+
+//                请假审核
+                if ($keyword == '10' || $keyword == '任务分配' || $keyword == '任务设置')
+                {
+                    $msgType = "text";
+                    $contentStr = '<a href="http://wglpt.sinaapp.com/rw/rwsz.php?openid=' . $fromUsername . '">点击进行任务分配~</a>';
+                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                    echo $resultStr;
                 }
             }
             else
