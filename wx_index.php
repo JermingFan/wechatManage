@@ -275,7 +275,7 @@ class wechatCallbackapiTest
                         {
                             $late = '正常';
                         }
-                        $v .= $rows['uid'] . '----' . $rows['name'] . '----' . $late. '----' . $rows['time'] . "\n";
+                        $v .= $rows['uid'] . ' ---- ' . $rows['name'] . ' ---- ' . $late. ' ---- ' . $rows['time'] . "\n";
 
                         $title = "工号---姓名---状态---时间";
                         $PicUrl = "";
@@ -310,7 +310,7 @@ class wechatCallbackapiTest
                             {
                                 $state = '其他';
                             }
-                            $v .= $rows['uid'] . '----' . $rows['name'] . '----' . $rows['job'] . '----' . $state . "\n";
+                            $v .= $rows['uid'] . ' ---- ' . $rows['name'] . ' ---- ' . $rows['job'] . ' ---- ' . $state . "\n";
                         }
 
                         $title = "工号---姓名---职务---状态";
@@ -371,7 +371,7 @@ class wechatCallbackapiTest
                             {
                                 $pass = '未通过';
                             }
-                            $v .= $rows['id'] . '----' . $rows['name'] . '----[ ' . $rows['time'] . ' ~ ' . $rows['endtime'] . ' ]----' . $pass . "\n";
+                            $v .= $rows['id'] . ' ---- ' . $rows['name'] . ' ----[  ' . $rows['time'] . ' ~ ' . $rows['endtime'] . '  ]---- ' . $pass . "\n";
                         }
 
                         $title = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
