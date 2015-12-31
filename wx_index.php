@@ -68,9 +68,37 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
-                $title[] = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
-                
-                $title[] = "请假序号---姓名---[ 开始时间 ~ 结束时间 ]---状态";
+                $imageTpl = "<xml>
+							<ToUserName><![CDATA[%s]]></ToUserName>
+							<FromUserName><![CDATA[%s]]></FromUserName>
+							<CreateTime>%s</CreateTime>
+							<MsgType><![CDATA[news]]></MsgType>//消息类型为news（图文）
+							<ArticleCount>2</ArticleCount>//图文数量为1（单图文）
+							<Articles>
+							<item>//第一张图文消息
+							<Title><![CDATA[%s]]></Title> //标题
+							<Description><![CDATA[%s]]></Description>//描述
+							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
+							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
+							</item>
+							</Articles>
+							<Articles>
+							<item>//第一张图文消息
+							<Title><![CDATA[%s]]></Title> //标题
+							<Description><![CDATA[%s]]></Description>//描述
+							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
+							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
+							</item>
+							</Articles>
+							<Articles>
+							<item>//第一张图文消息
+							<Title><![CDATA[%s]]></Title> //标题
+							<Description><![CDATA[%s]]></Description>//描述
+							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
+							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
+							</item>
+							</Articles>
+							</xml> "
 
                 $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
                 echo $resultStr;
