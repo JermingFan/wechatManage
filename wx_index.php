@@ -76,7 +76,7 @@ class wechatCallbackapiTest
 							<ArticleCount>2</ArticleCount>//图文数量为1（单图文）
 							<Articles>
 							<item>//第一张图文消息
-							<Title><![CDATA[%s]]></Title> //标题
+							<Title>111</Title> //标题
 							<Description><![CDATA[%s]]></Description>//描述
 							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
 							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
@@ -84,7 +84,7 @@ class wechatCallbackapiTest
 							</Articles>
 							<Articles>
 							<item>//第一张图文消息
-							<Title><![CDATA[%s]]></Title> //标题
+							<Title>222</Title> //标题
 							<Description><![CDATA[%s]]></Description>//描述
 							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
 							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
@@ -92,7 +92,7 @@ class wechatCallbackapiTest
 							</Articles>
 							<Articles>
 							<item>//第一张图文消息
-							<Title><![CDATA[%s]]></Title> //标题
+							<Title>333</Title> //标题
 							<Description><![CDATA[%s]]></Description>//描述
 							<PicUrl><![CDATA[%s]]></PicUrl>//打开前的图片链接地址
 							<Url><![CDATA[%s]]></Url>//点击进入后显示的图片链接地址
@@ -100,7 +100,7 @@ class wechatCallbackapiTest
 							</Articles>
 							</xml> "
 
-                $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+                $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time);
                 echo $resultStr;
             }
 
