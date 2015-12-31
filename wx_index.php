@@ -68,29 +68,27 @@ class wechatCallbackapiTest
 
             if (!empty($event))
             {
-                $bd = "绑定功能\n[1]绑定对应角色        [2]修改用户角色\n[3]取消绑定";
+                $bd[1] = "【绑定】- 输入关键词或数字\n[1]绑定角色        [2]修改角色\n[3]取消绑定";
+                $bd[2] = "【签到】- 输入关键词或数字\n[1]进行签到        [2]查看签到";
+                $bd[3] = "【请假】- 输入关键词或数字\n[1]申请请假        [2]审核请假\n[3]查看状态";
+                $bd[4] = "【任务】- 输入关键词或数字\n[1]发布任务        [2]查看任务";
                 $gzTpl =
                     "<xml>
                         <ToUserName><![CDATA[%s]]></ToUserName>
                         <FromUserName><![CDATA[%s]]></FromUserName>
                         <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[news]]></MsgType>
-                        <ArticleCount>2</ArticleCount>
+                        <ArticleCount>4</ArticleCount>
                         <Articles>";
+                for($i = 1; $i<=4; $i++){
                 $gzTpl.=
                     "<item>
-                        <Title>$bd</Title>
+                        <Title>$bd[$i]</Title>
                         <Description></Description>
                         <PicUrl><![CDATA[]]></PicUrl>
                         <Url><![CDATA[]]></Url>
-                        </item>";
-                $gzTpl.=
-                    "<item>
-                        <Title>1234</Title>
-                        <Description></Description>
-                        <PicUrl><![CDATA[]]></PicUrl>
-                        <Url><![CDATA[]]></Url>
-                        </item>";
+                        </item>";}
+
                 $gzTpl.=
                     "</Articles>
                         <FuncFlag>1</FunFlag>
