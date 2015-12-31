@@ -99,7 +99,7 @@ class wechatCallbackapiTest
                     else null;
                     $gzTpl.=
                         "<item>
-                        <Title>123</Title>
+                        <Title>$b</Title>
                         <Description><![CDATA[]]></Description>
                         <PicUrl><![CDATA[]]></PicUrl>
                         <Url><![CDATA[]]></Url>
