@@ -358,7 +358,7 @@ class wechatCallbackapiTest
                     if ($rows['state'] == 1)
                     {
 //						开始读取用户列表
-                        $sql = "SELECT * FROM `user_请假`";
+                        $sql = "SELECT * FROM `user_qingjia`";
                         $res = _select_data($sql);
                         $v = '';
                         while ($rows = mysql_fetch_array($res))
