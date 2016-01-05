@@ -37,6 +37,9 @@ if(isset($_POST["submit"]))
     exit();
 }
 
+$sql = "SELECT * FROM `user_info`";
+$res = _select_data($sql);
+
 ?>
 
 <div class="container">
@@ -47,10 +50,28 @@ if(isset($_POST["submit"]))
             <input name="name" type="text" class="form-control" placeholder="输入任务名称..." />
         </div>
         <div class="form-group">
-            <label>是否通过</label>
-            <select name="pass" class="form-control">
-                <option value="0" <?php if (0 == $rows['pass']) echo 'selected' ?>>未通过</option>
-                <option value="1" <?php if (1 == $rows['pass']) echo 'selected' ?>>通过</option>
+            <label>描述</label>
+            <textarea name="desc" class="form-control" rows="5" placeholder="Enter ..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>执行人</label>
+            <select name="long" class="form-control">
+                <?php while($rows = mysql_fetch_array($res)) {
+                    ?>
+                    <option value="<?php $rows['uid'] ?>"><?php echo $rows['uid'].'——'.$rows['name'] ?></option>
+                    <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>任务时间</label>
+            <select name="long" class="form-control">
+                <option value="86400">1天</option>
+                <option value="172800">2天</option>
+                <option value="259200">3天</option>
+                <option value="345600">4天</option>
+                <option value="432000">5天</option>
             </select>
         </div>
         <div class="form-group">
