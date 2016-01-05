@@ -56,7 +56,8 @@ $res = _select_data($sql);
         <div class="form-group">
             <label>执行人</label>
             <select name="long" class="form-control">
-                <?php while($rows = mysql_fetch_array($res)) {
+                <?php while($rows = mysql_fetch_array($res))
+                {
                     ?>
                     <option value="<?php $rows['uid'] ?>"><?php echo $rows['uid'].'——'.$rows['name'] ?></option>
                     <?php
