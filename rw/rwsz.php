@@ -22,17 +22,22 @@ require_once '../sql.php';
 
 if(isset($_POST["submit"]))
 {
-    $pass = $_POST["pass"];
-    $id = $_POST['id'];
-    $sql = "UPDATE `user_qingjia` SET `pass` = '$pass' WHERE `id` = '$id'";
-    $res = _update_data($sql);
+    $name = $_POST['name'];
+    $desc = $_POST['desc'];
+    $uid = $_POST['uid'];
+    $long = $_POST['long'];
+    $time = date('Y-m-d', time());
+    $endtime = date('Y-m-d', time()+$long);
+
+    $sql = "INSERT INTO `user_renwu` (`name`, `time`, `endtime`, `desc`, `uid`) values ('$name', '$time', '$endtime', '$desc', '$uid')";
+    $res = _insert_data($sql);
     if($res == 1)
     {
-        echo "审核成功 ↖点击此处返回";
+        echo "分配任务成功 ↖点击此处返回";
     }
     else
     {
-        echo "审核".$uid."失败<br/>请重新修改~";
+        echo "分配任务".$uid."失败<br/>请重新分配~";
     }
     exit();
 }
@@ -51,15 +56,14 @@ $res = _select_data($sql);
         </div>
         <div class="form-group">
             <label>描述</label>
-            <textarea name="desc" class="form-control" rows="5" placeholder="Enter ..."></textarea>
+            <textarea name="desc" class="form-control" rows="5" placeholder="输入任务描述..."></textarea>
         </div>
         <div class="form-group">
             <label>执行人</label>
-            <select name="long" class="form-control">
-                <?php while($rows = mysql_fetch_array($res))
-                {
+            <select name="uid" class="form-control">
+                <?php while($rows = mysql_fetch_array($res)) {
                     ?>
-                    <option value="<?php $rows['uid'] ?>"><?php echo $rows['uid'].'——'.$rows['name'] ?></option>
+                    <option value="<?php echo $rows['uid'] ?>"><?php echo $rows['uid'].'——'.$rows['name'] ?></option>
                     <?php
                 }
                 ?>
