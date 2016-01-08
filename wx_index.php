@@ -452,6 +452,48 @@ class wechatCallbackapiTest
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                 }
+
+//                用户信息
+                if ($keyword == '11' || $keyword == '我的任务' || $keyword == '查看任务')
+                {
+//                    先检查用户是否在职
+                    $sql = "SELECT `uid`, `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
+                    $res = _select_data($sql);
+                    $rows = mysql_fetch_array($res);
+                    if ($rows['state'] == 1)
+                    {
+//                        开始读取用户列表
+                        $sql = "SELECT * FROM `user_renwu` WHERE `uid` = $rows[uid]";
+                        $res = _select_data($sql);
+                        $v = '';
+                        while ($rows = mysql_fetch_array($res))
+                        {
+                            if ($rows['state'] == 1)
+                            {
+                                $state = '完成';
+                            }
+                            else
+                            {
+                                $state = '未完成';
+                            }
+                            $v .= $rows['id'] . ' ---- ' . $rows['name'] . ' ---- ' . $rows['time'] . ' ---- ' . $rows['endtime'] . ' ---- ' . $state . "\n";
+                        }
+
+                        $title = "任务序号---任务---开始时间---截止时间---状态";//有空再加发布者，及任务重要度
+                        $PicUrl = "";
+                        $Description = $v;
+                        $Url = "http://wglpt.sinaapp.com/rw/rwxq.php";
+                        $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+                        echo $resultStr;
+                    }
+                    else
+                    {
+                        $msgType = "text";
+                        $contentStr = '对不起，你没有权限！';
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        echo $resultStr;
+                    }
+                }
             }
             else
             {
