@@ -482,7 +482,7 @@ class wechatCallbackapiTest
                         $title = "任务序号---任务---开始时间---截止时间---状态";//有空再加发布者，及任务重要度
                         $PicUrl = "";
                         $Description = $v;
-                        $Url = "http://wglpt.sinaapp.com/rw/rwxq.php";
+                        $Url = "http://wglpt.sinaapp.com/rw/rwxq.php?uid=".$rows['uid'];
                         $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
                         echo $resultStr;
                     }
