@@ -81,15 +81,15 @@ class wechatCallbackapiTest
                             <MsgType><![CDATA[news]]></MsgType>
                             <ArticleCount>$num</ArticleCount>
                             <Articles>";
-                            for($i = 0; $i<=$num; $i++)
-                            {
-                                $gzTpl .= "<item>
+                for($i = 0; $i<=$num; $i++)
+                {
+                    $gzTpl .= "<item>
                                     <Title>$gz[$i]</Title>
                                     <Description></Description>
                                     <PicUrl><![CDATA[]]></PicUrl>
                                     <Url><![CDATA[]]></Url>
                                     </item>";
-                            }
+                }
                 $gzTpl .= "</Articles>
                             <FuncFlag>1</FunFlag>
                             </xml>";
@@ -460,10 +460,11 @@ class wechatCallbackapiTest
                     $sql = "SELECT `uid`, `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
                     $res = _select_data($sql);
                     $rows = mysql_fetch_array($res);
+                    $uid = $rows['uid'];
                     if ($rows['state'] == 1)
                     {
 //                        开始读取用户列表
-                        $sql = "SELECT * FROM `user_renwu` WHERE `uid` = $rows[uid]";
+                        $sql = "SELECT * FROM `user_renwu` WHERE `uid` = '$uid'";
                         $res = _select_data($sql);
                         $v = '';
                         while ($rows = mysql_fetch_array($res))
@@ -482,7 +483,7 @@ class wechatCallbackapiTest
                         $title = "任务序号---任务---开始时间---截止时间---状态";//有空再加发布者，及任务重要度
                         $PicUrl = "";
                         $Description = $v;
-                        $Url = "http://wglpt.sinaapp.com/rw/rwxq.php?uid=".$rows['uid'];
+                        $Url = "http://wglpt.sinaapp.com/rw/rwxq.php?uid=$uid";
                         $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
                         echo $resultStr;
                     }
