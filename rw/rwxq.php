@@ -31,31 +31,31 @@
      */
     require_once '../sql.php';
 
-    $fromUsername=$_GET["openid"];
-    $sql = "SELECT `id`, `name`, `uid`, `time`, `endtime`, `pass`, `info` FROM `user_任务`";
+    $uid=$_GET["uid"];
+    $sql = "SELECT * FROM `user_renwu` WHERE `uid` = $uid";
     $res = _select_data($sql);
     while ($rows = mysql_fetch_array($res))
     {
-        if ($rows['pass'] == 1)
+        if ($rows['state'] == 1)
         {
-            $pass = '通过';
+            $state = '完成';
         }
         else
         {
-            $pass = '未通过';
+            $state = '未完成';
         }
         ?>
 
         <tr>
             <td><?php echo $rows['name'] ?></td>
-            <td><?php echo $rows['uid'] ?></td>
             <td><?php echo $rows['time'] ?></td>
             <td><?php echo $rows['endtime'] ?></td>
-            <td><?php echo $rows['info'] ?></td>
-            <td><?php echo $pass ?></td>
+            <td><?php echo $state ?></td>
             <td><a href="http://wglpt.sinaapp.com/qj/qjsh.php?id=<?php echo $rows['id'] ?>&uid=<?php echo $rows['uid'] ?>">审核</a></td>
         </tr>
-
+        <tr>
+            <td><?php echo $rows['info'] ?></td>
+        </tr>
         <?php
     }
     ?>
