@@ -13,13 +13,11 @@
 <table class="table table-hover">
     <tr>
         <th>任务</th>
+        <th>任务详情</th>
         <th>开始时间</th>
         <th>结束时间</th>
         <th>状态</th>
         <th>操作</th>
-    </tr>
-    <tr>
-        <th>任务详情</th>
     </tr>
 
     <?php
@@ -48,13 +46,11 @@
 
         <tr>
             <td><?php echo $rows['name'] ?></td>
+            <td><?php echo $rows['desc'] ?></td>
             <td><?php echo $rows['time'] ?></td>
             <td><?php echo $rows['endtime'] ?></td>
             <td><?php echo $state ?></td>
             <td><a href="http://wglpt.sinaapp.com/qj/qjsh.php?id=<?php echo $rows['id'] ?>&uid=<?php echo $rows['uid'] ?>">操作</a></td>
-        </tr>
-        <tr>
-            <td><?php echo $rows['desc'] ?></td>
         </tr>
         <?php
     }
