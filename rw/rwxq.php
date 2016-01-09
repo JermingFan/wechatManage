@@ -32,7 +32,7 @@
     require_once '../sql.php';
 
     $uid=$_GET["uid"];
-    $sql = "SELECT * FROM `user_renwu` WHERE `uid` = $uid";
+    $sql = "SELECT * FROM `user_renwu` WHERE `uid` = '$uid'";
     $res = _select_data($sql);
     while ($rows = mysql_fetch_array($res))
     {
