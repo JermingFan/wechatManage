@@ -49,7 +49,7 @@ $res = _select_data($sql);
 
 <div class="container">
     <form action="http://wglpt.sinaapp.com/rw/rwsz.php" method="post">
-        <h2 class="form-signin-heading">请分配任务</h2>
+        <h2 class="form-signin-heading">任务操作</h2>
         <div class="form-group">
             <label>任务名称</label>
             <input name="name" type="text" class="form-control" placeholder="输入任务名称..." />
@@ -59,24 +59,10 @@ $res = _select_data($sql);
             <textarea name="desc" class="form-control" rows="5" placeholder="输入任务描述..."></textarea>
         </div>
         <div class="form-group">
-            <label>执行人</label>
-            <select name="uid" class="form-control">
-                <?php while($rows = mysql_fetch_array($res)) {
-                    ?>
-                    <option value="<?php echo $rows['uid'] ?>"><?php echo $rows['uid'].'——'.$rows['name'] ?></option>
-                    <?php
-                }
-                ?>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>任务时间</label>
-            <select name="long" class="form-control">
-                <option value="86400">1天</option>
-                <option value="172800">2天</option>
-                <option value="259200">3天</option>
-                <option value="345600">4天</option>
-                <option value="432000">5天</option>
+            <label>是否完成</label>
+            <select name="state" class="form-control">
+                <option value="0">未完成</option>
+                <option value="1">完成</option>
             </select>
         </div>
         <div class="form-group">
