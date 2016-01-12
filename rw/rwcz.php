@@ -23,8 +23,8 @@ require_once '../sql.php';
 if(isset($_POST["submit"]))
 {
     $state = $_POST["state"];
-    $uid = $_POST['uid'];
-    $sql = "UPDATE `user_renwu` SET `state` = '$state' WHERE `uid` = '$uid'";
+    $id = $_POST['id'];
+    $sql = "UPDATE `user_renwu` SET `state` = '$state' WHERE `id` = '$id'";
     $res = _update_data($sql);
     if($res == 1)
     {
