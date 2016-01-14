@@ -75,7 +75,7 @@ class wechatCallbackapiTest
                 $gz[4] = "                   【请假】- 输入关键词或数字\n                [7]申请请假                 [8]审核请假\n             [9]查看状态";
                 $gz[5] = "                   【任务】- 输入关键词或数字\n                [10]发布任务                [11]查看任务";
                 $gz[6] = "                   》》》》》 Tips 《《《《《\n                  输入'0'、'首页'、'功能'、'菜单'\n                  查看功能菜单";
-                $gz[7] = "                   Powered  By  Fan & 毕设";
+                $gz[7] = "                   Powered  By  Fan \& 毕设";
                 $num = count($gz);
                 $gzTpl = "<xml>
                             <ToUserName><![CDATA[%s]]></ToUserName>
@@ -124,7 +124,7 @@ class wechatCallbackapiTest
                     $gz[4] = "                   【请假】- 输入关键词或数字\n                [7]申请请假                 [8]审核请假\n             [9]查看状态";
                     $gz[5] = "                   【任务】- 输入关键词或数字\n                [10]发布任务                [11]查看任务";
                     $gz[6] = "                   》》》》》 Tips 《《《《《\n                  输入'0'、'首页'、'功能'、'菜单'\n                  查看功能菜单";
-                    $gz[7] = "                   Powered  By  Fan & 毕设";
+                    $gz[7] = "                   Powered  By  Fan \& 毕设";
                     $num = count($gz);
                     $gzTpl = "<xml>
                             <ToUserName><![CDATA[%s]]></ToUserName>
