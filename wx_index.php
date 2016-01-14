@@ -116,13 +116,13 @@ class wechatCallbackapiTest
 //                功能
                 if ($keyword == '0' || $keyword == '功能' || $keyword == '首页' || $keyword == '菜单')
                 {
-                    $gz[0] = "     欢迎使用微管理系统^_^";
-                    $gz[1] = "     【绑定】- 输入关键词或数字\n[1]绑定角色        [2]修改角色\n[3]取消绑定";
-                    $gz[2] = "     【签到】- 输入关键词或数字\n[4]进行签到        [5]查看签到";
-                    $gz[3] = "     【信息】- 输入关键词或数字\n[6]查看信息";
-                    $gz[4] = "     【请假】- 输入关键词或数字\n[7]申请请假        [8]审核请假\n[9]查看状态";
-                    $gz[5] = "     【任务】- 输入关键词或数字\n[10]发布任务       [11]查看任务\n[12]修改状态";
-                    $gz[6] = "     ------【Tips】------\n输入'0'、'首页'、'功能'、'菜单'\n查看功能菜单";
+                    $gz[0] = "           欢迎使用微管理系统^_^";
+                    $gz[1] = "     【绑定】- 输入关键词或数字\n   [1]绑定角色           [2]修改角色\n   [3]取消绑定";
+                    $gz[2] = "     【签到】- 输入关键词或数字\n   [4]进行签到           [5]查看签到";
+                    $gz[3] = "     【信息】- 输入关键词或数字\n   [6]查看信息           [7]更改状态";
+                    $gz[4] = "     【请假】- 输入关键词或数字\n   [7]申请请假           [8]审核请假\n   [9]查看状态";
+                    $gz[5] = "     【任务】- 输入关键词或数字\n   [10]发布任务          [11]查看任务";
+                    $gz[6] = "           ------【Tips】------\n          输入'0'、'首页'、'功能'、'菜单'\n          查看功能菜单";
                     $num = count($gz);
                     $gzTpl = "<xml>
                             <ToUserName><![CDATA[%s]]></ToUserName>
@@ -389,7 +389,7 @@ class wechatCallbackapiTest
                 }
 
 //                请假申请
-                if ($keyword == '7' || $keyword == '请假')
+                if ($keyword == '8' || $keyword == '请假')
                 {
                     $msgType = "text";
                     $contentStr = '<a href="http://wglpt.sinaapp.com/qj/qingjia.php?openid=' . $fromUsername . '">点击申请请假~</a>';
@@ -398,7 +398,7 @@ class wechatCallbackapiTest
                 }
 
 //                请假审核
-                if ($keyword == '8' || $keyword == '审核请假' || $keyword == '请假审核')
+                if ($keyword == '9' || $keyword == '审核请假' || $keyword == '请假审核')
                 {
                     $msgType = "text";
                     $contentStr = '<a href="http://wglpt.sinaapp.com/qj/qjlb.php?openid=' . $fromUsername . '">点击进行请假审核~</a>';
@@ -407,7 +407,7 @@ class wechatCallbackapiTest
                 }
 
 //                请假结果
-                if ($keyword == '9' || $keyword == '结果' || $keyword == '请假结果')
+                if ($keyword == '10' || $keyword == '结果' || $keyword == '请假结果')
                 {
 //					先检查用户是否在职
                     $sql = "SELECT `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
@@ -449,7 +449,7 @@ class wechatCallbackapiTest
                 }
 
 //                请假审核
-                if ($keyword == '10' || $keyword == '任务分配' || $keyword == '任务设置')
+                if ($keyword == '11' || $keyword == '任务分配' || $keyword == '任务设置')
                 {
                     $msgType = "text";
                     $contentStr = '<a href="http://wglpt.sinaapp.com/rw/rwsz.php?openid=' . $fromUsername . '">点击进行任务分配~</a>';
@@ -458,7 +458,7 @@ class wechatCallbackapiTest
                 }
 
 //                用户信息
-                if ($keyword == '11' || $keyword == '我的任务' || $keyword == '查看任务')
+                if ($keyword == '12' || $keyword == '我的任务' || $keyword == '查看任务')
                 {
 //                    先检查用户是否在职
                     $sql = "SELECT `uid`, `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
