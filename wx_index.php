@@ -390,6 +390,48 @@ class wechatCallbackapiTest
                     }
                 }
 
+//                用户编辑
+                if ($keyword == '7' || $keyword == '更改信息' || $keyword == '更新状态' || $keyword == '信息编辑' || $keyword == '编辑信息')
+                {
+//                    先检查用户是否在职
+                    $sql = "SELECT `state` FROM `user_info` WHERE `from_user` = '$fromUsername'";
+                    $res = _select_data($sql);
+                    $rows = mysql_fetch_array($res);
+                    if ($rows['state'] == 1)
+                    {
+//                        开始读取用户列表
+                        $sql = "SELECT * FROM `user_info`";
+                        $res = _select_data($sql);
+                        $v = '';
+                        while ($rows = mysql_fetch_array($res))
+                        {
+                            if ($rows['state'] == 1)
+                            {
+                                $state = '在职';
+                            }
+                            else
+                            {
+                                $state = '其他';
+                            }
+                            $v .= $rows['uid'] . ' ---- ' . $rows['name'] . ' ---- ' . $rows['job'] . ' ---- ' . $state . "\n";
+                        }
+
+                        $title = "工号---姓名---职务---状态";
+                        $PicUrl = "";
+                        $Description = $v;
+                        $Url = "http://wglpt.sinaapp.com/yh/yhbj.php";
+                        $resultStr = sprintf($imageTpl, $fromUsername, $toUsername, $time, $title, $Description, $PicUrl, $Url);
+                        echo $resultStr;
+                    }
+                    else
+                    {
+                        $msgType = "text";
+                        $contentStr = '对不起，你没有权限！';
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        echo $resultStr;
+                    }
+                }
+
 //                请假申请
                 if ($keyword == '8' || $keyword == '请假')
                 {
