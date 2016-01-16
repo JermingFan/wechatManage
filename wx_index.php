@@ -585,5 +585,3 @@ class wechatCallbackapiTest
         }
     }
 }
-
-?>
