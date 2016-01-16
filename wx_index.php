@@ -413,10 +413,10 @@ class wechatCallbackapiTest
                             {
                                 $state = '其他';
                             }
-                            $v .= $rows['uid'] . ' ---- ' . $rows['name'] . ' ---- ' . $rows['job'] . ' ---- ' . $state . "\n";
+                            $v .= $rows['uid'] . ' ---- ' . $rows['name'] . ' ---- ' . $state . "\n";
                         }
 
-                        $title = "工号---姓名---职务---状态";
+                        $title = "工号---姓名---状态";
                         $PicUrl = "";
                         $Description = $v;
                         $Url = "http://wglpt.sinaapp.com/yh/yhbj.php";
