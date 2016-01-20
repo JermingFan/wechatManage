@@ -36,8 +36,8 @@
         <tr>
             <td><?php echo $rows['uid'] ?></td>
             <td><?php echo $rows['name'] ?></td>
-            <td><?php echo $rows['mobile'] ?></td>
-            <td><?php echo $rows['address'] ?></td>
+            <td><?php echo $rows['state'] ?></td>
+            <td>编辑</td>
         </tr>
 
         <?php
