@@ -31,14 +31,21 @@
     $res = _select_data($sql);
     while ($rows = mysql_fetch_array($res))
     {
+        if ($rows['state'] == 1)
+        {
+            $state = '在职';
+        }
+        else
+        {
+            $state = '离职';
+        }
         ?>
 
         <tr>
             <td><?php echo $rows['uid'] ?></td>
             <td><?php echo $rows['name'] ?></td>
-            <td><?php echo $rows['state'] ?></td>
-            <td>编辑</td>
-        </tr>
+            <td><?php echo $state ?></td>
+            <td><a href="http://wglpt.sinaapp.com/yh/yhcz.php?id=<?php echo $rows['id'] ?>&uid=<?php echo $rows['uid'] ?>">编辑</a></td>        </tr>
 
         <?php
     }
