@@ -45,7 +45,7 @@
             <td><?php echo $rows['uid'] ?></td>
             <td><?php echo $rows['name'] ?></td>
             <td><?php echo $state ?></td>
-            <td><a href="http://wglpt.sinaapp.com/yh/yhcz.php?id=<?php echo $rows['id'] ?>&uid=<?php echo $rows['uid'] ?>">编辑</a></td>
+            <td><a href="http://wglpt.sinaapp.com/yh/yhcz.php?uid=<?php echo $rows['uid'] ?>">编辑</a></td>
         </tr>
 
         <?php
