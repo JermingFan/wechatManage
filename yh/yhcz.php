@@ -20,13 +20,13 @@
  */
 require_once '../sql.php';
 
-if(isset($_POST["submit"]))
+if (isset($_POST["submit"]))
 {
     $state = $_POST["state"];
     $id = $_POST['id'];
     $sql = "UPDATE `user_info` SET `state` = '$state' WHERE `id` = '$id'";
     $res = _update_data($sql);
-    if($res == 1)
+    if ($res == 1)
     {
         echo "修改状态成功 ↖点击此处返回";
     }
