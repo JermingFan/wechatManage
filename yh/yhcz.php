@@ -45,7 +45,7 @@ $rows = mysql_fetch_array($res);
 ?>
 
 <div class="container">
-    <form action="http://wglpt.sinaapp.com/rw/yhcz.php" method="post">
+    <form action="http://wglpt.sinaapp.com/yh/yhcz.php" method="post">
         <h2 class="form-signin-heading">请修改状态</h2>
         <div class="form-group">
             <label>工号</label>
