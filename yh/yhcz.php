@@ -43,7 +43,6 @@ function bangding($id, $pwd)
     $password= $rows['password'];
     if ($password == $pwd && $pwd != null)
     {
-//echo '<script> location.replace("xuanke.php?stu='.$user.'"); </script>';
         echo '<script> location.replace("./bd/quanxian.php"); </script>';
     }
     else
