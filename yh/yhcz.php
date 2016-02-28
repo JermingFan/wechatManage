@@ -40,11 +40,11 @@ function bangding($id, $pwd)
     $sql = "SELECT password FROM admin WHERE id = '$id'";
     $result = _select_data($sql);
     $rows = mysql_fetch_array($result);
-    $pwd = $rows['password'];
+    $password= $rows['password'];
     if ($password == $pwd && $pwd != null)
     {
 //echo '<script> location.replace("xuanke.php?stu='.$user.'"); </script>';
-        echo '<script> location.replace("./yh/yhbj.php"); </script>';
+        echo '<script> location.replace("./bd/quanxian.php"); </script>';
     }
     else
     {
