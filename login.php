@@ -29,20 +29,44 @@
 
 <body>
 
+<?php
+if(isset($_POST["submit"]))
+{
+    bangding(urlencode($_POST["id"]), urlencode($_POST["pwd"]));
+}
+function bangding($id, $pwd)
+{
+    require_once './sql.php';
+    $sql = "SELECT password FROM admin WHERE id = '$id'";
+    $result = _select_data($sql);
+    $rows = mysql_fetch_array($result);
+    $password= $rows['password'];
+    if ($password == $pwd && $pwd != null)
+    {
+//echo '<script> location.replace("xuanke.php?stu='.$user.'"); </script>';
+        echo '<script> location.replace("./admin.php"); </script>';
+    }
+    else
+    {
+        echo '<script>alert("密码错误，请重新输入！");</script>';
+    }
+}
+?>
+
 <div class="container">
 
     <form class="form-signin" action = "" method = "post">
         <h2 class="form-signin-heading">管理员登录</h2>
         <label for="inputEmail" class="sr-only">帐号...</label>
-        <input type="text" id="input" class="form-control" placeholder="帐号..." required autofocus>
+        <input type="text" id="input" name="id" class="form-control" placeholder="帐号..." required autofocus>
         <label for="inputPassword" class="sr-only">密码...</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="密码..." required>
+        <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="密码..." required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> 记住我
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <button class="btn btn-lg btn-primary btn-block" name = "submit" type="submit">登录</button>
     </form>
 
 </div> <!-- /container -->
