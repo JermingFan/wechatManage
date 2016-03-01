@@ -84,15 +84,15 @@ class wechatCallbackapiTest
                             <MsgType><![CDATA[news]]></MsgType>
                             <ArticleCount>$num</ArticleCount>
                             <Articles>";
-                for($i = 0; $i<=$num; $i++)
-                {
-                    $gzTpl .= "<item>
+                            for($i = 0; $i<=$num; $i++)
+                            {
+                                $gzTpl .= "<item>
                                     <Title>$gz[$i]</Title>
                                     <Description></Description>
                                     <PicUrl><![CDATA[]]></PicUrl>
                                     <Url><![CDATA[]]></Url>
                                     </item>";
-                }
+                            }
                 $gzTpl .= "</Articles>
                             <FuncFlag>1</FunFlag>
                             </xml>";
@@ -501,7 +501,7 @@ class wechatCallbackapiTest
                     echo $resultStr;
                 }
 
-//                用户信息
+//                查看任务
                 if ($keyword == '12' || $keyword == '我的任务' || $keyword == '查看任务')
                 {
 //                    先检查用户是否在职
@@ -542,6 +542,16 @@ class wechatCallbackapiTest
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                     }
+                }
+
+                //                用户绑定对应角色
+                if ($keyword == '管理员登录')
+                {
+
+                        $msgType = "text";
+                        $contentStr = '<a href="http://wglpt.sinaapp.com/login.php">管理页面~</a>';
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        echo $resultStr;
                 }
             }
             else
@@ -585,3 +595,5 @@ class wechatCallbackapiTest
         }
     }
 }
+
+?>
