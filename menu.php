@@ -5,7 +5,7 @@ define("ACCESS_TOKEN", "UAGfmDPD8PbV264AU2zR3NLKPyQ-D6ffc2NxDjqO09SoNacaKzZorlJH
 
 //创建菜单
 function createMenu($data){
-$ch = curl_init();
+    $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".ACCESS_TOKEN);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);

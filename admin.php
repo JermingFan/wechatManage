@@ -14,7 +14,6 @@
     <tr>
         <th>姓名</th>
         <th>工号</th>
-        <th>职位</th>
         <th>权限</th>
         <th>操作</th>
     </tr>
@@ -45,7 +44,6 @@
         <tr>
             <td><?php echo $rows['name'] ?></td>
             <td><?php echo $rows['uid'] ?></td>
-            <td><?php echo $rows['job'] ?></td>
             <td><?php echo $qx ?></td>
             <td><a href="http://wglpt.sinaapp.com/adminEdit.php?uid=<?php echo $rows['uid'] ?>">修改</a></td>
         </tr>
@@ -53,6 +51,7 @@
         <?php
     }
     ?>
+    <a href="http://wglpt.sinaapp.com/adminAdd.php" type="submit" class="btn btn-success btn-block">添加</a>
 
 </table>
 

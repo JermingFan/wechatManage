@@ -1,0 +1,12 @@
+cron:
+#- url: /
+#  schedule: "0 4 * * *"
+#  timezone: "Asia/Shanghai"
+#  description: "每天凌晨4点执行"
+#- url: /hearbeat
+#  schedule: "*/5 * * * *"
+#  description: "每5分钟执行一次"
+- url: /qiandao
+  schedule: "0 7 * * 1-5"
+  timezone: "Asia/Shanghai"
+  description: "在工作日的每天早上8点执行"
