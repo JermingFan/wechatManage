@@ -45,7 +45,7 @@ function bangding($uid, $pwd)
 
 <div class="container">
     <form action="http://wglpt.sinaapp.com/adminAdd.php" method="post">
-        <h2 class="form-signin-heading">请绑定工号</h2>
+        <h2 class="form-signin-heading">请添加员工</h2>
         <div class="form-group">
             <label>工号</label>
             <input name="uid" type="text" class="form-control" placeholder="输入工号..." required/>

@@ -50,7 +50,7 @@
             <td><?php echo $rows['time'] ?></td>
             <td><?php echo $rows['endtime'] ?></td>
             <td><?php echo $state ?></td>
-            <td><a href="http://wglpt.sinaapp.com/qj/qjsh.php?id=<?php echo $rows['id'] ?>&uid=<?php echo $rows['uid'] ?>">操作</a></td>
+            <td><a href="http://wglpt.sinaapp.com/rw/rwcz.php?id=<?php echo $rows['id'] ?>&uid=<?php echo $rows['uid'] ?>">操作</a></td>
         </tr>
         <?php
     }

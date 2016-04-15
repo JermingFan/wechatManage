@@ -24,21 +24,31 @@ $fromUsername=$_GET["openid"];
 
 if(isset($_POST["submit"]))
 {
-    bangding($fromUsername, trim($_POST["uid"]), trim($_POST["pwd"]), trim($_POST["type"]));
+    bangding($fromUsername, trim($_POST["uid"]), trim($_POST["pwd"]));
     exit();
 }
 
-function bangding($fromUsername, $uid, $pwd, $type)
+function bangding($fromUsername, $uid, $pwd)
 {
-    $sql = "INSERT INTO `user_bangding` (`from_user`, `uid`, `pwd`, `type`) values ('$fromUsername', '$uid', '$pwd', '$type')";
-    $res = _insert_data($sql);
-    if($res == 1)
+    $s = "SELECT `pwd` FROM `user_bangding` WHERE `uid` = '$uid'";
+    $res = _select_data($s);
+    $data = mysql_fetch_array($res);
+    if ($pwd == $data['pwd'])
     {
-        echo "绑定成功 ↖点击此处返回";
+        $sql = "UPDATE `user_bangding` SET `from_user` = '$fromUsername' WHERE `uid` = '$uid'";
+        $res = _update_data($sql);
+        if($res == 1)
+        {
+            echo "绑定成功 ↖点击此处返回";
+        }
+        else
+        {
+            echo "绑定".$uid."失败<br/>请重新绑定~";
+        }
     }
     else
     {
-        echo "绑定".$uid."失败<br/>请重新绑定~";
+        echo "绑定失败，密码错误！！！<br/>请联系管理员";
     }
 
 }
@@ -54,16 +64,6 @@ echo'
             <div class="form-group">
                 <label>密码</label>
                 <input name="pwd" type="password" class="form-control" placeholder="输入密码..." required/>
-            </div>
-            <div class="form-group">
-                <label>职务</label>
-                <select name="type" class="form-control">
-                    <option value="1">职务1</option>
-                    <option value="2">职务2</option>
-                    <option value="3">职务3</option>
-                    <option value="4">职务4</option>
-                    <option value="5">职务5</option>
-                </select>
             </div>
             <div class="form-group">
                 <input type="submit" name="submit" value="确定" class="btn btn-success btn-block"/>
